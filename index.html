@@ -1,21 +1,9 @@
-<!doctype html>
-<html lang="he" dir="rtl">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>המטבח החכם שלי</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-</head>
-<body>
-<header><div><b>🍲 המטבח החכם שלי</b><small>ספר המתכונים המשפחתי</small></div><button id="wake">☀️ מסך פעיל</button></header>
-<main>
-<section class="hero"><h1>מה מבשלים היום?</h1><div class="search"><input id="search" placeholder="חפש מנה, מרכיב, 'בלי גלוטן' או 'עד 30 דקות'…"><button onclick="smartSearch()">חיפוש</button></div><div class="chips"><button data-cat="הכל">הכל</button><button data-cat="חלבי">🥛 חלבי</button><button data-cat="בשרי">🥩 בשרי</button><button data-cat="פרווה">🌿 פרווה</button><button data-cat="קינוחים">🍰 קינוחים</button></div></section>
-<section class="actions"><button class="primary" onclick="openScan()">📷 סריקת מתכון מדף</button><button onclick="openEditor()">＋ הוספת מתכון</button><button onclick="showFavorites()">♥ מועדפים</button></section>
-<section><div class="sectionTitle"><h2>המתכונים שלי</h2><span id="count"></span></div><div id="recipes" class="grid"></div></section>
-</main>
-<dialog id="editor"><form id="recipeForm"><div class="dlgHead"><h2 id="editorTitle">מתכון חדש</h2><button type="button" onclick="editor.close()">✕</button></div><input type="hidden" id="rid"><label>שם המתכון<input id="name" required></label><div class="two"><label>קטגוריה<select id="category"><option>חלבי</option><option>בשרי</option><option>פרווה</option><option>קינוחים</option></select></label><label>זמן הכנה בדקות<input id="minutes" type="number" min="0"></label></div><label>תמונה<input id="photo" type="file" accept="image/*"></label><label>מרכיבים — שורה לכל מרכיב<textarea id="ingredients" rows="7" required></textarea></label><label>אופן הכנה<textarea id="steps" rows="8" required></textarea></label><button class="primary" type="submit">שמירת המתכון</button></form></dialog>
-<dialog id="scanner"><div class="dlgHead"><h2>📷 סריקת דף מתכון</h2><button onclick="scanner.close()">✕</button></div><p>צלם את הדף ישר ובאור טוב. המערכת תחלץ את הטקסט ותיתן לך לבדוק אותו לפני השמירה.</p><input id="scanFile" type="file" accept="image/*" capture="environment"><button class="primary" onclick="scanRecipe()">סרוק מתכון</button><div id="scanStatus"></div></dialog>
-<dialog id="viewer"><div id="viewContent"></div></dialog>
-<aside id="timers"><h3>⏱ טיימרים</h3><div id="timerList"></div></aside>
-<script src="app.js"></script>
-</body></html>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#315b45"><meta name="description" content="תבלין - ספר המתכונים המשפחתי שלך"><title>תבלין | בית של טעמים</title><link rel="manifest" href="4-manifest.webmanifest"><link rel="icon" href="5-icon.svg"><link rel="stylesheet" href="2-style.css"></head><body>
+<header class="top"><button class="brand" data-view="home" aria-label="בית"><span class="logo">🌿</span><span><b>תבלין</b><small>יותר ממתכונים. בית של טעמים.</small></span></button><nav><button data-view="home">בית</button><button data-view="library">המתכונים שלי</button><button data-view="backup">גיבוי ושיתוף</button></nav><button id="installBtn" class="ghost" hidden>התקנה</button></header>
+<main id="app" tabindex="-1"></main><div id="toast" role="status"></div>
+<dialog id="recipeDialog"><form id="recipeForm"><div class="dlgHead"><h2 id="formTitle">מתכון חדש</h2><button type="button" data-close>✕</button></div><input type="hidden" name="id"><label>שם המתכון *<input name="name" required autocomplete="off"></label><div class="two"><label>סוג<select name="category"><option>פרווה</option><option>חלבי</option><option>בשרי</option><option>קינוח</option><option>אחר</option></select></label><label>זמן בדקות<input name="minutes" type="number" min="0" max="1440" value="30"></label></div><label>תמונה<input name="photo" type="file" accept="image/*"></label><label>מרכיבים - שורה לכל מרכיב *<textarea name="ingredients" rows="7" required></textarea></label><label>שלבי הכנה - שורה לכל שלב *<textarea name="steps" rows="7" required></textarea></label><label>הערות<textarea name="notes" rows="3"></textarea></label><div class="formActions"><button type="button" class="danger" id="deleteRecipe" hidden>מחיקה</button><button class="primary" type="submit">שמירת המתכון</button></div><p class="autosave">הטיוטה נשמרת אוטומטית במכשיר</p></form></dialog>
+<dialog id="pasteDialog"><form id="pasteForm"><div class="dlgHead"><h2>הדבקת מתכון</h2><button type="button" data-close>✕</button></div><p>הדביקו מתכון. לפני השמירה תוכלו לבדוק ולתקן את המבנה.</p><textarea name="raw" rows="16" placeholder="שם המתכון&#10;&#10;מרכיבים:&#10;...&#10;&#10;אופן הכנה:&#10;..." required></textarea><button class="primary">המשך לבדיקה</button></form></dialog>
+<dialog id="scanDialog"><form id="scanForm"><div class="dlgHead"><h2>סריקה ובדיקה</h2><button type="button" data-close>✕</button></div><p>הצילום נשמר מקומית בלבד. כדי למנוע טעויות, הטקסט לא נשמר בלי בדיקה שלך.</p><label class="upload">📷 צילום או בחירת דף<input name="scan" type="file" accept="image/*" capture="environment" required></label><img id="scanPreview" alt="תצוגת הדף" hidden><label>מה כתוב בדף?<textarea name="raw" rows="12" placeholder="הקלידו או הדביקו את הטקסט שזוהה. שורות לא ברורות אפשר לסמן ב-?" required></textarea></label><div class="notice">העוזר החכם אינו זמין כרגע. הסריקה נשארת במסלול בדיקה ידני ואינה חוסמת שמירה.</div><button class="primary">המשך למסך בדיקה</button></form></dialog>
+<dialog id="cookDialog" class="cook"><div id="cookContent"></div></dialog>
+<input id="importFile" type="file" accept="application/json,.json" hidden>
+<script src="3-app.js"></script></body></html>
