@@ -1,0 +1,5 @@
+Model weights, derived ONNX files (model-qdq-all.onnx, mishkefet-int8.onnx) and the character LM (lm-mc10.bin, derived from hebrew_char6.pkl)
+are derived from Mishkefet-v1 by itayinbar: https://huggingface.co/itayinbar/Mishkefet-v1
+License: CC BY-NC-SA 4.0 - https://creativecommons.org/licenses/by-nc-sa/4.0/
+Non-commercial use only. Derivatives must carry the same license and attribution.
+Changes: exported to ONNX, statically quantized (QDQ int8, calibrated on synthetic font-rendered lines), LM pruned (n>=3 grams with count<10) and re-encoded as a hashed binary table; preprocessing and CTC beam search ported to JavaScript.

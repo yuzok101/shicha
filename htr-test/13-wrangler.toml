@@ -1,0 +1,6 @@
+name = "tavlin-htr-test"
+compatibility_date = "2026-09-01"
+account_id = "c7ad7d26d4cc7bc59aaf0c82d54bd641"
+workers_dev = true
+[assets]
+directory = "./dist"

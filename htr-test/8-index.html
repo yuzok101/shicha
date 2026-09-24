@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- Handwriting model: Mishkefet-v1 by itayinbar (https://huggingface.co/itayinbar/Mishkefet-v1), CC BY-NC-SA 4.0, non-commercial use only. Converted to ONNX int8. See LICENSE-MODEL.txt. -->
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>תבלין - בדיקת זיהוי כתב יד במכשיר</title>
+<style>body{font-family:system-ui,sans-serif;margin:16px;max-width:720px;line-height:1.5}button{font-size:18px;padding:10px 16px;margin:4px 0}pre{white-space:pre-wrap;background:#f4f4f4;padding:8px;font-size:13px;direction:ltr;text-align:left}.lic{font-size:12px;color:#555;border-top:1px solid #ccc;margin-top:24px;padding-top:8px}#out{direction:rtl;text-align:right}</style></head><body>
+<h2>בדיקת זיהוי כתב יד במכשיר</h2>
+<p>הבדיקה רצה כולה בדפדפן. שום תמונה לא נשלחת לשרת. טעינה ראשונה מורידה כ-70MB, עדיף על Wi-Fi. הריצה לוקחת כמה דקות - השאר את המסך דולק.</p>
+<div id="dev"></div>
+<button id="run">הרץ בדיקה (3 דפי דוגמה)</button><br>
+<label>או נסה תמונה משלך: <input type="file" id="own" accept="image/*"></label>
+<div id="status"></div><div id="out"></div>
+<pre id="res"></pre><button id="copy" hidden>העתק תוצאות</button>
+<div class="lic">מודל זיהוי כתב היד: Mishkefet-v1 מאת itayinbar - <a href="https://huggingface.co/itayinbar/Mishkefet-v1">huggingface.co/itayinbar/Mishkefet-v1</a>. רישיון <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, לשימוש לא מסחרי בלבד. המודל הומר ל-ONNX int8 ומודל השפה קוצץ; ראו <a href="LICENSE-MODEL.txt">LICENSE-MODEL.txt</a>.</div>
+<script src="ort/ort.all.min.js"></script><script src="mk.js"></script><script src="mkbeam.js"></script><script src="seg.js"></script>
+<script>window.Module={};</script><script src="opencv.js"></script>
+<script src="app.js"></script></body></html>
