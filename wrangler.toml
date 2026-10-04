@@ -1,0 +1,16 @@
+name = "tavlin"
+main = "worker.js"
+compatibility_date = "2026-09-17"
+account_id = "c7ad7d26d4cc7bc59aaf0c82d54bd641"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tavlin-db"
+database_id = "4fef9627-4d9a-458f-b819-46c59a824ac7"
+
+[triggers]
+crons = ["0 2 * * *"]

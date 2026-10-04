@@ -1,8 +1,0 @@
-Tavlin candidate v3 - NOT DEPLOYED
-Combine numbered part suffixes in order; GitHub may prepend an upload prefix. Verify per-part SHA-256, then tar SHA-256.
-tar SHA-256 575afb7b358a69b16bc7ef78492053a64382f48ead5d04adde053af60dd3bdc2
-tavlin-candidate-v3.part00 18000000 f6120959d54892246325ac75876779d9b539bef4eda9b251938763f8cd3f8c5c
-tavlin-candidate-v3.part01 18000000 7c2eb9ed203837957759aa1475664aacc929883613ae73617bbac41c6085a09a
-tavlin-candidate-v3.part02 18000000 2e5471328275eb5b57e1b5ed54abd42c142068824603d09ec34652c47751cb79
-tavlin-candidate-v3.part03 18000000 3a860350a658982044acaba554123c8fa1dbbaeeac2a119f6ece86b6dfa165ea
-tavlin-candidate-v3.part04 16401920 63638ca9ec8225f337c3492793633dd4d6c215d2c1a263385418f6162e615a6b

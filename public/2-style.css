@@ -1,0 +1,392 @@
+:root{--cream:#faf4e8;--paper:#fffdf8;--green:#315b45;--green2:#4f765e;--sage:#dce8d8;--wood:#9b6641;--spice:#c56f36;--ink:#2c2b27;--muted:#726b61;--line:#e5d9c8;--danger:#a13f36;--shadow:0 14px 40px #49372118}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:.75rem 1rem;color:var(--ink);background:#efe6d7}.top{position:sticky;top:0;z-index:10;min-height:82px;display:flex;align-items:center;gap:24px;padding:10px clamp(16px,4vw,56px);background:#fffdf6eF;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;background:transparent;padding:0;margin-left:auto;text-align:right}.brand b{font-family:Georgia,serif;font-size:1.8rem;color:var(--green)}.brand small{display:block;color:var(--muted);font-size:.73rem}.logo{font-size:2.1rem;background:var(--sage);border-radius:50%;padding:8px}nav{display:flex;gap:5px}nav button{background:transparent}.ghost{border:1px solid var(--green);color:var(--green);background:transparent}main{max-width:1200px;margin:auto;padding:clamp(18px,4vw,48px)}.hero{background:linear-gradient(125deg,#315b45,#52745b);color:white;border-radius:32px;padding:clamp(28px,6vw,64px);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:'🌿';position:absolute;left:3%;bottom:-40px;font-size:10rem;opacity:.13}.eyebrow{letter-spacing:.08em;color:#e5d5af}.hero h1{font-family:Georgia,serif;font-size:clamp(2.1rem,5vw,4.4rem);margin:.2em 0}.hero p{max-width:560px;font-size:1.12rem}.search{display:flex;gap:8px;background:white;border-radius:18px;padding:7px;max-width:650px;margin-top:25px}.search input{border:0;outline:0;flex:1;padding:10px;background:transparent}.primary{background:var(--green);color:white}.hero .primary{background:var(--spice)}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}.quick button{min-height:112px;background:var(--paper);border:1px solid var(--line);box-shadow:0 5px 16px #4937210c;font-size:1.02rem}.quick span{font-size:2rem;display:block;margin-bottom:8px}.sectionHead{display:flex;justify-content:space-between;align-items:center;margin-top:30px}.sectionHead h2,h2{font-family:Georgia,serif}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 7px 24px #4937210d}.card .photo{height:175px;background:linear-gradient(135deg,var(--sage),#e9d6bb);display:grid;place-items:center;font-size:4rem;background-size:cover;background-position:center}.cardBody{padding:16px}.card h3{margin:0 0 8px}.meta{color:var(--muted);font-size:.9rem}.cardActions{display:flex;gap:7px;margin-top:14px}.cardActions button{flex:1;padding:.6rem}.empty{text-align:center;background:var(--paper);border:1px dashed #bba98e;border-radius:25px;padding:50px 20px;grid-column:1/-1}.empty .big{font-size:4rem}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.chip.active{background:var(--green);color:white}.statusbar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.stat{background:#ffffff17;border:1px solid #ffffff28;border-radius:15px;padding:12px}.stat b{font-size:1.4rem;display:block}dialog{border:0;border-radius:24px;padding:0;width:min(680px,94vw);max-height:92vh;background:var(--paper);box-shadow:0 30px 90px #0004}dialog::backdrop{background:#1d261fd0;backdrop-filter:blur(3px)}dialog form,#cookContent{padding:24px;overflow:auto;max-height:92vh}.dlgHead{display:flex;justify-content:space-between;align-items:center}.dlgHead button{background:transparent;font-size:1.2rem}label{display:grid;gap:7px;margin:15px 0;font-weight:700}input,textarea,select{border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink)}textarea{resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formActions{display:flex;justify-content:space-between;gap:10px}.danger{background:#f3d9d5;color:var(--danger)}.autosave,.muted{color:var(--muted);font-size:.85rem}.upload{border:2px dashed #aab9a8;padding:24px;text-align:center;border-radius:16px}#scanPreview{width:100%;max-height:280px;object-fit:contain;border-radius:14px}.notice{background:#fff1cf;border-right:4px solid #d49a30;padding:12px;border-radius:10px}.cook{width:min(900px,96vw)}.cookTop{display:flex;justify-content:space-between;align-items:center}.progress{height:10px;background:#e8dfd1;border-radius:9px;overflow:hidden}.progress i{display:block;background:var(--green);height:100%}.step{font-size:clamp(1.25rem,3vw,2rem);line-height:1.65;padding:28px 8px}.timerBox{background:var(--sage);padding:16px;border-radius:18px;margin:14px 0}.timerTime{font-size:2rem;font-variant-numeric:tabular-nums}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.backupPanel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;margin:18px 0}.backupPanel button{margin:5px}.toast,#toast{position:fixed;bottom:20px;right:50%;transform:translateX(50%) translateY(100px);background:#24382c;color:white;padding:13px 20px;border-radius:14px;z-index:30;opacity:0;transition:.25s}#toast.show{opacity:1;transform:translateX(50%) translateY(0)}@media(max-width:760px){.top{min-height:70px}.brand small,nav{display:none}main{padding:14px}.hero{border-radius:22px;padding:28px 20px}.quick{grid-template-columns:1fr 1fr}.quick button{min-height:95px}.grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}.statusbar{grid-template-columns:1fr 1fr}.card .photo{height:150px}}@media(display-mode:standalone){#installBtn{display:none!important}}
+.splitOverlay{position:fixed;inset:0;z-index:50;background:var(--cream);padding:18px;display:grid;grid-template-rows:auto 1fr;gap:12px}.splitHead{display:flex;justify-content:space-between;align-items:center}.splitGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:0}.splitPane{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px;overflow-y:auto;min-height:0}.splitPane h2{position:sticky;top:-20px;background:var(--paper);padding:14px 0;border-bottom:1px solid var(--line)}@media(max-width:700px){.splitOverlay{padding:8px}.splitGrid{gap:6px}.splitPane{padding:12px}.splitPane h2{top:-12px;font-size:1.1rem}}
+
+body[data-theme="spice"]{--cream:#fff3e5;--green:#7b4631;--green2:#9a5c3b;--sage:#f0d0ad;--spice:#b44c2d}body[data-theme="night"]{--cream:#18231d;--paper:#243229;--green:#8fb996;--green2:#719879;--sage:#33483a;--ink:#f6f0e4;--muted:#c8bfaf;--line:#465749}body.largeText{font-size:120%}
+
+.pickList{display:grid;gap:10px}.pickList button{text-align:right;background:var(--sage);padding:16px}
+#cookDialog{width:100vw;max-width:none;height:100vh;max-height:none;border-radius:0;margin:0;padding:0}#cookContent{height:100vh;max-height:none;padding:clamp(18px,4vw,56px);display:flex;flex-direction:column}.cookTop{position:sticky;top:0;background:var(--paper);z-index:2;padding-bottom:12px}.cookModes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 20px}.cookModes button{border:1px solid var(--line)}.cookModes .active{background:var(--green);color:white}.recipeSheet{max-width:900px;width:100%;margin:auto;background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,5vw,60px);font-size:1.15rem;line-height:1.8;overflow:auto}.cookFocus{max-width:900px;width:100%;margin:auto;padding:30px}.cookFocus ul{font-size:1.35rem;line-height:2}.cookFocus.slow{text-align:center}.cookNav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:18px}.cookNav button{min-width:120px}@media(max-width:600px){.cookModes{grid-template-columns:1fr}.cookTop h1{font-size:1.45rem}.cookFocus{padding:18px 4px}.recipeSheet{padding:20px}}
+.estimate{font-weight:700;color:var(--green);font-size:1.05rem}.autoTime{background:#fff1cf;border-radius:14px;padding:14px;margin-top:12px;font-size:1.25rem;font-weight:700;text-align:center}@media(max-width:760px){#cookContent{padding:16px}.cookModes{position:sticky;top:82px;z-index:2;background:var(--paper);padding:8px 0}.cookModes button{min-height:54px}.cookNav{position:sticky;bottom:0;background:var(--paper);padding:12px 0}.cookNav button{min-height:54px}.cookFocus .step{font-size:1.55rem}.cookFocus .row button{flex:1;min-height:52px}}
+.scanChoices{display:grid;grid-template-columns:1fr 1fr;gap:12px}.scanChoices input{max-width:100%}body,main,dialog,form,.card,.cardBody,.cookFocus,.recipeSheet{min-width:0;max-width:100%}h1,h2,h3,p,li,button,label,.step,.meta,.notice{overflow-wrap:anywhere;word-break:break-word}.cardActions{flex-wrap:wrap}.cardActions button{min-width:min(130px,100%)}@media(max-width:600px){.scanChoices{grid-template-columns:1fr}.upload{padding:20px 12px}.cookModes button,.cookNav button{white-space:normal}}
+body[data-theme="notebook"]{--cream:#f3ead8;--paper:#fffaf0;--green:#7d3b32;--green2:#9a5546;--sage:#ead8c1;--wood:#70462c;--spice:#b57a3a;--ink:#30251f;--line:#cbb797;font-family:Georgia,"Noto Serif Hebrew",serif;background-image:repeating-linear-gradient(0deg,transparent 0 31px,#b7d0df55 32px)}body[data-theme="notebook"] button,body[data-theme="notebook"] input,body[data-theme="notebook"] select,body[data-theme="notebook"] textarea{border-radius:4px}body[data-theme="notebook"] .card,body[data-theme="notebook"] .hero,body[data-theme="notebook"] dialog,body[data-theme="notebook"] .backupPanel{border-radius:6px;box-shadow:4px 5px 0 #8d6b4933}body[data-theme="notebook"] .hero{background:#7d3b32}body[data-theme="notebook"] .top{border-bottom:3px double var(--wood)}body[data-theme="modern"]{--cream:#f4f6fa;--paper:#fff;--green:#111827;--green2:#374151;--sage:#e5e7eb;--wood:#6b7280;--spice:#2563eb;--ink:#111827;--muted:#64748b;--line:#d8dee8;font-family:Arial,"Noto Sans Hebrew",sans-serif;letter-spacing:.01em}body[data-theme="modern"] button,body[data-theme="modern"] input,body[data-theme="modern"] select,body[data-theme="modern"] textarea{border-radius:999px}body[data-theme="modern"] .card,body[data-theme="modern"] .hero,body[data-theme="modern"] dialog,body[data-theme="modern"] .backupPanel{border-radius:12px;box-shadow:0 1px 2px #00000012}body[data-theme="modern"] .hero{background:linear-gradient(135deg,#111827,#2563eb);padding-block:80px}body[data-theme="modern"] .card .photo{filter:grayscale(.35)}body[data-theme="modern"] h1,body[data-theme="modern"] h2{font-family:Arial,"Noto Sans Hebrew",sans-serif;font-weight:800}body[data-theme="spice"]{--cream:#fff4e6;--paper:#fffaf2;--green:#8b3e1f;--sage:#f2d3a8;--spice:#d9480f;--line:#e8b982}body[data-theme="spice"] .hero{background:radial-gradient(circle at 20% 20%,#e67700,#8b2c12)}body[data-theme="spice"] .card,body[data-theme="spice"] dialog{border-radius:32px}body[data-theme="night"]{--cream:#101816;--paper:#18231f;--ink:#f3f4ed;--muted:#b7c4bc;--line:#37453e;--sage:#284138}body[data-theme="night"] .top{background:#111b18ee}body[data-theme="night"] .hero{background:linear-gradient(145deg,#0b1512,#294f40)}body[data-theme="night"] input,body[data-theme="night"] textarea,body[data-theme="night"] select{background:#22302b;color:#fff}body[data-theme="night"] .card{box-shadow:0 12px 36px #0008}body[data-theme="herb"] .card,body[data-theme="herb"] .hero{border-radius:28px}
+body{font-family:"Trebuchet MS","Arial Hebrew",Arial,sans-serif}.brand b,.hero h1,.sectionHead h2,h2{font-family:Georgia,"Times New Roman",serif}.cookMenu{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:8}.cookMenu>button{background:var(--green);color:#fff;box-shadow:var(--shadow)}#cookMenuPanel{position:absolute;top:52px;left:50%;transform:translateX(-50%);width:min(320px,88vw);background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 16px 50px #0005}#cookMenuPanel button{display:block;width:100%;margin:5px 0;text-align:right}#cookMenuPanel .active{background:var(--green);color:#fff}@media(max-width:600px){.cookMenu{top:10px}.cookTop{padding-top:54px}}
+.libraryCta{display:flex;align-items:center;gap:18px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:24px}.libraryCta>span{font-size:2.5rem}.libraryCta div{flex:1}.libraryCta h2,.libraryCta p{margin:.2rem}.recipeMenu{position:relative;flex:1}.recipeMenu summary{list-style:none;background:#efe6d7;border-radius:14px;padding:.65rem;text-align:center;cursor:pointer}.recipeMenu div{position:absolute;z-index:5;left:0;top:48px;width:190px;background:var(--paper);padding:8px;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.recipeMenu button{display:block;width:100%;margin:4px 0;text-align:right}@media(max-width:600px){.libraryCta{display:grid;text-align:center}.libraryCta button{min-height:54px}.cardActions>.primary{min-height:54px}.recipeMenu div{left:0;max-width:80vw}}
+.networkDot{width:18px;height:18px;padding:0;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px #999}.networkDot.online{background:#2ca24c}.networkDot.offline{background:#d33434}.libraryTools{display:flex;justify-content:space-between;gap:12px;align-items:center}.libraryTools label{display:flex;align-items:center;gap:8px;margin:0}.trashPanel{padding:24px}.trashRow{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:12px}.danger{color:#a13f36}@media(max-width:600px){.libraryTools{align-items:stretch;flex-direction:column}.libraryTools label{justify-content:space-between}}
+.addMenuPanel{padding:24px}.addMethods{display:grid;grid-template-columns:1fr 1fr;gap:14px}.addMethods button{min-height:100px;font-size:1.1rem}@media(max-width:600px){.addMethods{grid-template-columns:1fr}.addMethods button{min-height:68px}}
+.networkDot{width:11px;height:11px;border:0;box-shadow:none;min-width:11px;padding:0}
+header .networkDot{width:10px!important;height:10px!important;min-width:10px!important;min-height:10px!important;padding:0!important;border:0!important;box-shadow:none!important}
+/* Mobile library call-to-action: readable in every theme */
+.libraryCta{color:var(--ink)!important;background:var(--paper)!important;min-height:0!important}.libraryCta h2,.libraryCta p{color:var(--ink)!important}.libraryCta .primary{width:auto!important;min-width:max-content!important;max-width:100%;white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important;padding-inline:20px!important;justify-self:center}.libraryCta>span{line-height:1}body[data-theme="spice"] .libraryCta{background:#fffaf2!important;border-color:#b85c27!important}body[data-theme="spice"] .libraryCta h2,body[data-theme="spice"] .libraryCta p{color:#3a2115!important}body[data-theme="night"] .libraryCta{background:#18231f!important}body[data-theme="night"] .libraryCta h2,body[data-theme="night"] .libraryCta p{color:#f3f4ed!important}@media(max-width:600px){.hero{padding-block:28px!important}.libraryCta{display:flex!important;flex-direction:column;gap:10px!important;padding:20px 16px!important;text-align:center;margin-top:18px!important}.libraryCta .primary{font-size:.95rem;min-height:48px!important}.quick{margin-bottom:16px}}
+.appMenuBtn{font-size:1.35rem;padding:.45rem .65rem}.appMenuPanel{padding:22px}.appMenuPanel details{border-bottom:1px solid var(--line);padding:10px 0}.appMenuPanel summary{font-weight:800;font-size:1.1rem;cursor:pointer;padding:10px}.appMenuPanel details>button{display:block;width:100%;text-align:right;margin:6px 0;min-height:48px}.appMenuPanel p{color:var(--muted);line-height:1.5}@media(max-width:600px){#appMenu{width:100vw;height:100vh;max-height:none;border-radius:0}.appMenuPanel{padding:18px}}
+.appMenuPanel{overflow:auto;max-height:100vh}.appMenuPanel details>button{white-space:normal;overflow-wrap:normal;word-break:normal}.appMenuPanel summary{display:flex;justify-content:space-between}.appMenuPanel summary::after{content:'▾';margin-right:auto}@media(max-width:600px){.appMenuPanel details>button{display:flex;align-items:center;width:100%;padding:13px 15px;margin:7px 0;text-align:right}.appMenuPanel details{padding:8px 0}.appMenuPanel .dlgHead{position:sticky;top:0;background:var(--paper);z-index:2}}@media(max-width:900px) and (orientation:landscape){.top{min-height:58px;padding-block:6px}.hero{padding:20px!important}.hero h1{font-size:2rem}.quick{grid-template-columns:repeat(4,1fr);margin:12px 0}.quick button{min-height:75px}.quick span{font-size:1.4rem}.libraryCta{flex-direction:row!important;padding:14px!important}.libraryCta>span{font-size:1.8rem}#cookContent{padding:12px 22px}.cookTop{padding-top:40px}.cookModes{margin:4px 0 10px}.cookFocus{padding:12px;overflow:auto}.cookFocus .step{font-size:1.3rem;padding:10px}.timerBox{padding:10px;margin:6px 0}.cookNav{padding:6px 0}.scanChoices{grid-template-columns:1fr 1fr}dialog form{padding:16px;max-height:100vh}.appMenuPanel{max-height:100vh;padding:12px}.appMenuPanel details{padding:2px 0}.appMenuPanel details>button{min-height:38px;margin:3px 0}}
+/* Explicit readable surfaces for every card/panel in all themes */
+.backupPanel,.empty,.libraryCta,.card,.trashPanel,.addMenuPanel,.appMenuPanel,.recipeSheet,.cookFocus{background:var(--paper)!important;color:var(--ink)!important}.backupPanel h1,.backupPanel h2,.backupPanel h3,.backupPanel p,.backupPanel b,.empty h2,.empty p,.libraryCta h2,.libraryCta p,.card h3,.card p,.trashPanel,.addMenuPanel,.appMenuPanel,.recipeSheet,.cookFocus{color:var(--ink)!important}.backupPanel .primary,.libraryCta .primary,.card .primary{color:#fff!important}.statusbar{grid-template-columns:repeat(2,1fr)}body[data-theme="spice"] .backupPanel,body[data-theme="spice"] .empty,body[data-theme="spice"] .card{background:#fffaf2!important;color:#3a2115!important}body[data-theme="spice"] .backupPanel *,body[data-theme="spice"] .empty *,body[data-theme="spice"] .card h3,body[data-theme="spice"] .card .meta{color:#3a2115!important}body[data-theme="spice"] .backupPanel .primary,body[data-theme="spice"] .card .primary{color:#fff!important}body[data-theme="night"] .backupPanel,body[data-theme="night"] .empty,body[data-theme="night"] .card{background:#18231f!important;color:#f3f4ed!important}body[data-theme="night"] .backupPanel *,body[data-theme="night"] .empty *,body[data-theme="night"] .card h3{color:#f3f4ed!important}
+.activeCookStrip{display:flex;align-items:center;gap:6px;background:#fff1f0;border:1px solid #d9534f;border-radius:10px;padding:4px 6px;margin:10px 0;color:#a5211d;max-width:100%}.activeCookStrip button{background:transparent;color:#a5211d;padding:5px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.activeCookStrip button:first-child{flex:1;text-align:right}.activeCookStrip .activeClose{flex:0 0 auto;font-weight:900;font-size:1rem}.activeCookStrip b{color:#b8201a}@media(max-width:600px){.activeCookStrip{font-size:.78rem;margin:7px 0}.activeCookStrip button{padding:4px}}
+.shoppingList{margin-top:18px}.shoppingItem{display:flex;justify-content:space-between;align-items:center;background:var(--paper);border:1px solid var(--line);padding:12px 16px;margin:8px 0;border-radius:14px}.shoppingItem label{display:flex;align-items:center;gap:10px;margin:0}.shoppingItem.done span{text-decoration:line-through;opacity:.6}.shoppingItem input{width:22px;height:22px}
+.recipeBookStat{display:flex;flex-direction:column;gap:8px}.recipeBookStat button{margin-top:auto;padding:7px 10px;background:#fff;color:var(--green);white-space:nowrap;word-break:normal;overflow-wrap:normal}
+@media(max-width:600px){.top{display:grid;grid-template-columns:auto auto 1fr auto;gap:10px;padding:10px 14px;min-height:68px}.brand{min-width:0;margin:0;grid-column:4}.brand b{font-size:1.45rem;white-space:nowrap}.brand small{display:none}.logo{font-size:1.35rem;padding:7px}.appMenuBtn{grid-column:2}.networkDot{grid-column:1}.top>#settingsBtn{grid-column:1;padding:8px 10px;font-size:.85rem;white-space:nowrap}.top>#installBtn{display:none!important}.statusbar{grid-template-columns:1fr 1fr}.recipeBookStat button{font-size:.82rem}}
+.top{transition:transform .24s ease;will-change:transform}.top.topHidden{transform:translateY(-105%)}
+@media(max-width:600px){.top{display:flex;flex-wrap:nowrap;min-height:64px;height:64px;padding:8px 12px;gap:9px}.top nav,.top>#settingsBtn,.top>#installBtn{display:none!important}.top .brand{order:1;margin-inline-end:0;margin-inline-start:auto;display:flex;min-width:0}.top .appMenuBtn{order:2;display:inline-grid}.top .networkDot{order:3;flex:0 0 auto}.top dialog{order:4}.brand b{font-size:1.35rem}.logo{font-size:1.2rem;padding:6px}}
+.recipeBookStat .bookDirect{display:block;margin-top:8px;width:100%;padding:8px 12px;border-radius:999px;background:var(--paper);color:var(--ink);font-weight:800;text-align:center;text-decoration:none;border:1px solid var(--line)}
+@media(max-width:600px){body>.top{box-sizing:border-box;display:grid!important;grid-template-columns:minmax(0,1fr) 40px 18px 96px;align-items:center;flex-wrap:nowrap;height:64px!important;min-height:64px!important;max-height:64px!important;padding:8px 12px!important;gap:8px!important;overflow:visible}body>.top>.brand{grid-column:1!important;display:flex!important;order:initial!important;margin:0!important;min-width:0!important;justify-self:start}body>.top>.appMenuBtn{grid-column:2!important;display:grid!important;order:initial!important;width:40px!important;height:40px!important;padding:0!important;margin:0!important}body>.top>.networkDot{grid-column:3!important;display:block!important;order:initial!important;margin:0!important}body>.top>#settingsBtn{grid-column:4!important;display:inline-flex!important;justify-content:center!important;order:initial!important;margin:0!important;padding:7px 8px!important;font-size:.78rem!important;width:96px!important;white-space:nowrap}body>.top>#installBtn,body>.top>nav{display:none!important}body>.top>dialog{position:fixed}.recipeBookStat .bookDirect{font-size:.82rem}}
+#recipeViewDialog{width:min(760px,94vw);max-height:92vh;padding:0}.recipeViewPanel{padding:clamp(18px,4vw,36px);background:var(--paper);color:var(--ink)}.recipeViewPanel section{margin-block:22px}.recipeViewPanel li{margin-block:9px;line-height:1.6}.recipeViewPhoto{height:min(280px,35vh);background-position:center;background-size:cover;border-radius:18px;margin-block:14px}.recipeViewActions{position:sticky;bottom:0;display:flex;gap:12px;background:var(--paper);padding-top:14px}.recipeViewActions button{flex:1}.recipeViewPanel .primary{color:#fff!important}@media(max-width:600px){#recipeViewDialog{width:100vw;height:100vh;max-height:none;border-radius:0;margin:0}.recipeViewPanel{min-height:100%;padding:18px}.recipeViewActions{padding-bottom:max(12px,env(safe-area-inset-bottom))}}
+.cardView{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:inherit}.cardView .primary{display:inline-block;padding:9px 20px;border-radius:12px;background:var(--green);color:#fff!important;font-weight:800;margin-top:12px}.recipeViewHead{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start}.recipeViewMenu{position:relative}.recipeViewMenuBtn,#recipeViewMenuBtn{font-size:1.3rem}.recipeViewMenu #recipeViewMenuPanel{position:absolute;top:calc(100% + 6px);left:0;z-index:8;min-width:220px;padding:8px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}#recipeViewMenuPanel button{display:block;width:100%;text-align:right;margin:3px 0}.recipeViewHead h1{margin-block:4px}@media(max-width:600px){.recipeViewHead{grid-template-columns:auto 1fr auto}.recipeViewHead .eyebrow{font-size:.72rem}.recipeViewHead h1{font-size:1.35rem}}
+.hero::after{pointer-events:none!important}.hero .statusbar,.hero .recipeBookStat,.hero .bookDirect{position:relative;z-index:2;pointer-events:auto}.hero .bookDirect{touch-action:manipulation}
+.ocrReview{margin:12px 0;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink)}.ocrReview h3{margin:0 0 8px}.ocrGood{color:#287a46;font-weight:800}.ocrMissing{color:#b42318!important;background:#fee4e2;border-right:4px solid #b42318;padding:10px;border-radius:8px;font-weight:800}.ocrReview[hidden]{display:none}
+
+.modelCredit{font-size:.72rem;color:var(--muted,#666);padding:8px 16px;text-align:center}.modelCredit a{color:inherit;text-decoration:underline}
+
+.historyDialog{width:min(600px,92vw);background:var(--paper);color:var(--ink);padding:24px;border-radius:18px}.historyList ol{padding-inline-start:24px}.historyList li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.duplicateDialog{width:min(530px,92vw);background:var(--paper);color:var(--ink);padding:24px;border-radius:18px}.duplicateDialog .row{display:flex;gap:10px;flex-wrap:wrap}.duplicateDialog button{min-height:44px}
+.selectRecipe{display:flex;gap:8px;align-items:center;font-weight:700;padding:8px;margin:0}.selectRecipe input{width:20px;height:20px}.libraryTools .row{margin:10px 0}.libraryTools button{white-space:normal}
+.card{position:relative}.favToggle{position:absolute;top:10px;left:10px;border-radius:50%;min-width:44px;min-height:44px;font-size:1.6rem;color:#a13f36;background:#fffdf8e8;box-shadow:0 2px 8px #0002}.favToggle[aria-pressed=true]{color:#b13b37}
+.importPreviewPanel{padding:24px;max-height:90vh;overflow:auto}.importPreviewNames{max-height:240px;overflow:auto;background:#fff;padding:12px;border:1px solid var(--line);border-radius:12px;margin:14px 0}.importPreviewNames div{padding:5px;border-bottom:1px solid var(--line)}.importPreviewDialog label{display:flex;align-items:center;gap:9px;font-weight:400}.importPreviewDialog input{width:20px;height:20px}
+.backupUpload{display:inline-flex;flex-direction:column;align-items:flex-start;gap:8px;font-weight:700;margin:12px 0}.backupUpload input{max-width:100%;font-size:.9rem}
+.inventoryForm{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:var(--paper);padding:18px;border:1px solid var(--line);border-radius:16px}.inventoryForm label{margin:0}.inventoryForm button{align-self:end}.inventoryRow{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:10px;padding:8px 0}.inventoryRow small{display:block;color:var(--muted)}@media(max-width:680px){.inventoryForm{grid-template-columns:1fr}}
+
+/* ===== v73: warm cream theme (default), self-hosted Playpen Sans Hebrew (SIL OFL) ===== */
+@font-face{font-family:"Playpen Sans Hebrew";src:url(fonts/PlaypenSansHebrew.ttf) format("truetype");font-weight:100 800;font-display:swap}
+body[data-theme="cream"]{--cream:#FFF8F0;--paper:#FFFDF9;--green:#3E2723;--green2:#5C4033;--sage:#F6E7D6;--wood:#A1887F;--spice:#D4A574;--ink:#3E2723;--muted:#8D6E63;--line:#EAD9C6;--shadow:0 14px 35px #5c403312;font-family:"Playpen Sans Hebrew",system-ui,sans-serif;background:radial-gradient(1200px 500px at 70% -10%,#fdeedd 0,transparent 60%),#FFF8F0;color:#3E2723}
+body[data-theme="cream"] h1,body[data-theme="cream"] h2,body[data-theme="cream"] h3{font-family:"Playpen Sans Hebrew",system-ui,sans-serif;color:#5C4033;font-weight:700}
+body[data-theme="cream"] .top{background:#FFFDF9ee!important;border-bottom:1px solid #EAD9C6!important;box-shadow:0 2px 14px #5c40330d}
+body[data-theme="cream"] .hero h1{font-size:clamp(2.6rem,9vw,5.2rem);line-height:1.08;color:#5C4033;letter-spacing:-.01em}
+body[data-theme="cream"] .hero{background:transparent!important;color:#3E2723!important;text-align:center;box-shadow:none!important}
+body[data-theme="cream"] .hero p,body[data-theme="cream"] .hero .eyebrow{color:#8D6E63!important}
+body[data-theme="cream"] .primary,body[data-theme="cream"] button.primary{background:#3E2723!important;color:#fff!important;border-radius:12px!important;font-weight:700;box-shadow:none}
+body[data-theme="cream"] .card,body[data-theme="cream"] .quick button,body[data-theme="cream"] .libraryCta,body[data-theme="cream"] .stat,body[data-theme="cream"] .recipeViewPanel,body[data-theme="cream"] .cookFocus,body[data-theme="cream"] .recipeSheet{border-radius:20px!important;border:1px solid #EAD9C6!important;box-shadow:0 14px 35px #5c403312!important;background:#FFFDF9!important}
+body[data-theme="cream"] .quick button{transition:transform .15s ease,box-shadow .15s ease}
+body[data-theme="cream"] .quick button:hover,body[data-theme="cream"] .card:hover{transform:translateY(-2px)}
+body[data-theme="cream"] input,body[data-theme="cream"] select,body[data-theme="cream"] textarea{border-radius:12px;border:1px solid #D9C3AC;background:#fff;font-family:inherit;color:#3E2723}
+body[data-theme="cream"] .eyebrow{color:#8D6E63}
+body[data-theme="cream"] dialog{border-radius:22px;background:#FFFDF9;color:#3E2723}
+body[data-theme="cream"] .progress i{background:#D4A574}
+
+/* tap-to-start timers */
+.durBtn{display:inline;font:inherit;font-weight:700;border:1.5px dashed #D4A574!important;background:#FFF1DF!important;color:#5C4033!important;border-radius:999px!important;padding:.05em .55em!important;min-height:0!important;cursor:pointer;margin-inline:.1em;white-space:nowrap}
+.durBtn:hover,.durBtn:focus-visible{background:#D4A574!important;color:#3E2723!important;outline:2px solid #3E2723}
+#timerDock{inset:auto 0 0 0;margin:0 auto 12px;width:min(520px,94vw);background:transparent;border:0;padding:0;display:flex;flex-direction:column;gap:8px;overflow:visible}
+#timerDock:not(:popover-open){display:none}
+.tdRow{display:flex;align-items:center;gap:8px;background:#3E2723;color:#fff;border-radius:16px;padding:10px 12px;box-shadow:0 10px 30px #3e272366}
+.tdRow button{min-height:36px!important;min-width:36px;padding:0 8px!important;border-radius:10px!important;background:#ffffff22!important;color:#fff!important;border:0!important;font-size:1rem}
+.tdTime{font-size:1.5rem;font-variant-numeric:tabular-nums;min-width:4.2ch;direction:ltr;text-align:center}
+.tdLbl{flex:1;font-size:.85rem;opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tdDone{background:#B3402F;animation:tdPulse 1s infinite}
+@keyframes tdPulse{50%{transform:scale(1.02)}}
+
+/* flow view */
+.viewToggle{display:flex;gap:8px;justify-content:center;margin:14px 0}
+.viewToggle button{background:#FFFDF9!important;border:1px solid #D4A574!important;color:#5C4033!important;border-radius:12px!important;font-weight:700}
+.flowWrap{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 0 18px}
+.flowWrap.flowH{flex-direction:row;overflow-x:auto;align-items:stretch;padding:10px 4px 18px;scroll-snap-type:x proximity}
+.flowNode{display:flex;justify-content:center;width:100%;scroll-snap-align:center}
+.flowWrap.flowH .flowNode{width:auto;flex:0 0 min(280px,78vw)}
+.flowCard{position:relative;width:min(520px,100%);background:#FFFDF9;border:2px solid #A1887F;border-radius:20px;padding:16px 16px 14px;box-shadow:0 14px 35px #5c403312;text-align:start}
+.flowCard h3{margin:2px 0 6px;font-size:1.15rem}.flowCard p{margin:0 0 8px;line-height:1.7}
+.flowEmoji{font-size:1.8rem;line-height:1}
+.flowNum{position:absolute;inset-block-start:12px;inset-inline-end:14px;font-size:.78rem;color:#8D6E63;background:#F6E7D6;border-radius:999px;padding:2px 10px}
+.flowPrep{border-style:dashed}
+.flowIngs{display:flex;flex-direction:column;gap:4px;border-top:1px dotted #BCAAA4;padding-top:8px;margin-top:6px}
+.flowIng{display:flex;gap:8px;align-items:center;font-size:.95rem;cursor:pointer}
+.flowIng.on span{text-decoration:line-through;opacity:.55}
+.flowIng input{width:18px;height:18px;accent-color:#3E2723}
+.flowArrow{display:flex;flex-direction:column;align-items:center;min-height:54px;justify-content:center;position:relative;width:100%}
+.flowArrow::before{content:"";width:0;height:34px;border-inline-start:2px dashed #A1887F}
+.flowArrow::after{content:"";width:0;height:0;border-inline:6px solid transparent;border-top:9px solid #A1887F}
+.flowArrow span{position:absolute;inset-inline-start:calc(50% + 14px);font-size:.82rem;color:#8D6E63;white-space:nowrap}
+.flowWrap.flowH .flowArrow{width:56px;min-height:0;flex:0 0 56px;flex-direction:row;align-self:center}
+.flowWrap.flowH .flowArrow::before{width:30px;height:0;border-inline-start:0;border-top:2px dashed #A1887F}
+.flowWrap.flowH .flowArrow::after{border-inline:0;border-block:6px solid transparent;border-inline-end:9px solid #A1887F;border-top-color:transparent}
+.flowWrap.flowH .flowArrow span{inset-inline-start:auto;inset-block-start:calc(50% - 26px)}
+@media (prefers-reduced-motion:reduce){.tdDone{animation:none}.quick button{transition:none}}
+body[data-theme="cream"] .search .primary,body[data-theme="cream"] #homeSearchBtn{white-space:nowrap;min-width:84px;writing-mode:horizontal-tb}
+
+/* v73b: flow layout closer to a step-box diagram (boxes, ingredients under each box, dashed arrows with minutes) */
+.flowCard{width:100%;padding:12px 14px;border-radius:16px}
+.flowNode{flex-direction:column;align-items:center;gap:6px}
+.flowNode .flowCard{max-width:520px}
+.flowNode>.flowIngs{border-top:0;padding-top:0;margin-top:0;width:min(520px,100%);padding-inline:6px}
+.flowIng{font-size:.9rem;color:#5C4033}
+.flowIng input{width:16px;height:16px}
+.flowWrap.flowH{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:14px 0;overflow:visible;padding:14px 0 24px}
+.flowWrap.flowH .flowNode{flex:0 0 220px;width:220px}
+.flowWrap.flowH .flowNode .flowCard{max-width:220px;min-height:150px}
+.flowWrap.flowH .flowNode>.flowIngs{width:220px}
+.flowWrap.flowH .flowArrow{flex:0 0 64px;width:64px;min-height:0;height:90px;align-self:flex-start;margin-top:30px}
+.flowWrap.flowH .flowArrow span{inset-block-start:-22px;inset-inline-start:50%;transform:translateX(50%);font-size:.8rem}
+html[dir=rtl] .flowWrap.flowH .flowArrow span{transform:translateX(50%)}
+.flowWrap.flowH .flowArrow::after{border-inline-end:9px solid #A1887F;border-block:6px solid transparent;border-top-color:transparent}
+#recipeViewDialog:has(#flowView:not([hidden])){width:min(1120px,96vw)}
+@media(max-width:899px){#recipeViewDialog:has(#flowView:not([hidden])){width:min(760px,96vw)}}
+
+/* ===== v73c: "פטל וגרפיט" theme - raspberry pills, graphite header, white cards. Self-hosted Assistant font (SIL OFL). ===== */
+@font-face{font-family:"Assistant";src:url(fonts/Assistant.ttf) format("truetype");font-weight:200 800;font-display:swap}
+body[data-theme="raspberry"]{--cream:#FFFFFF;--paper:#FFFFFF;--green:#C24B7E;--green2:#A93C69;--sage:#FFF0F6;--wood:#292C33;--spice:#C24B7E;--ink:#292C33;--muted:#6B6F7A;--line:#ECE7EA;--shadow:0 8px 24px #292c3314;font-family:"Assistant",system-ui,sans-serif;background:#F9F9F9;color:#292C33}
+body[data-theme="raspberry"] h1,body[data-theme="raspberry"] h2,body[data-theme="raspberry"] h3{font-family:"Assistant",system-ui,sans-serif;color:#292C33;font-weight:800}
+body[data-theme="raspberry"] .top{background:#292C33!important;color:#fff!important;border-bottom:0!important;box-shadow:0 4px 18px #292c3333}
+body[data-theme="raspberry"] .top *{color:#fff}
+body[data-theme="raspberry"] .top nav button{background:transparent!important;color:#fff!important;font-weight:600}
+body[data-theme="raspberry"] .top nav button:hover{color:#FFB7D2!important}
+body[data-theme="raspberry"] .top .ghost,body[data-theme="raspberry"] #settingsBtn{background:#C24B7E!important;color:#fff!important;border:0!important;border-radius:999px!important}
+body[data-theme="raspberry"] .logo{background:#fff!important;border-radius:50%}
+body[data-theme="raspberry"] .hero{background:#FFF0F6!important;color:#292C33!important;border-radius:22px;box-shadow:none!important;text-align:center}
+body[data-theme="raspberry"] .hero h1{color:#292C33;font-weight:800;font-size:clamp(2rem,6vw,3.4rem)}
+body[data-theme="raspberry"] .hero p,body[data-theme="raspberry"] .hero .eyebrow{color:#6B6F7A!important}
+body[data-theme="raspberry"] .primary,body[data-theme="raspberry"] button.primary{background:#C24B7E!important;color:#fff!important;border-radius:999px!important;font-weight:700;box-shadow:none}
+body[data-theme="raspberry"] .primary:hover{background:#A93C69!important}
+body[data-theme="raspberry"] .card,body[data-theme="raspberry"] .quick button,body[data-theme="raspberry"] .libraryCta,body[data-theme="raspberry"] .stat,body[data-theme="raspberry"] .recipeViewPanel,body[data-theme="raspberry"] .cookFocus,body[data-theme="raspberry"] .recipeSheet{border-radius:16px!important;border:1px solid #ECE7EA!important;box-shadow:0 8px 24px #292c3312!important;background:#fff!important}
+body[data-theme="raspberry"] .chip{border-radius:999px!important;background:#fff!important;border:1.5px solid #C24B7E!important;color:#C24B7E!important;font-weight:700}
+body[data-theme="raspberry"] .chip.active{background:#C24B7E!important;color:#fff!important}
+body[data-theme="raspberry"] input,body[data-theme="raspberry"] select,body[data-theme="raspberry"] textarea{border-radius:12px;border:1.5px solid #D8D2D6;background:#fff;font-family:inherit;color:#292C33}
+body[data-theme="raspberry"] .eyebrow{color:#C24B7E;font-weight:700}
+body[data-theme="raspberry"] dialog{border-radius:20px;background:#fff;color:#292C33}
+body[data-theme="raspberry"] .progress i{background:#C24B7E}
+body[data-theme="raspberry"] .durBtn{border-color:#C24B7E!important;background:#FFF0F6!important;color:#A93C69!important}
+body[data-theme="raspberry"] .durBtn:hover{background:#C24B7E!important;color:#fff!important}
+body[data-theme="raspberry"] .flowCard{border-color:#C24B7E;box-shadow:0 8px 24px #292c3312}
+body[data-theme="raspberry"] .flowNum{background:#FFF0F6;color:#A93C69}
+body[data-theme="raspberry"] .flowArrow::before{border-color:#C24B7E}body[data-theme="raspberry"] .flowArrow::after{border-top-color:#C24B7E}
+body[data-theme="raspberry"] .flowWrap.flowH .flowArrow::before{border-top-color:#C24B7E}body[data-theme="raspberry"] .flowWrap.flowH .flowArrow::after{border-inline-end-color:#C24B7E}
+body[data-theme="raspberry"] .viewToggle button{border-color:#C24B7E!important;color:#C24B7E!important;border-radius:999px!important}
+body[data-theme="raspberry"] .tdRow{background:#292C33}
+body[data-theme="raspberry"] .flowIng input{accent-color:#C24B7E}
+body[data-theme="raspberry"] .top .menuBtn,body[data-theme="raspberry"] .top #menuBtn,body[data-theme="raspberry"] .top button:not(#settingsBtn){background:transparent!important;border:1px solid #ffffff55!important}
+
+/* ===== v73d: tablet cooking layout - whole recipe on one screen, no scrolling where it fits ===== */
+@media (min-width:700px) and (max-width:1400px){
+ #cookDialog{width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;border-radius:0!important;overflow:hidden!important;padding:10px 18px!important}
+ #cookDialog .cookTop{margin:0 0 4px}
+ #cookDialog .cookTop h1{font-size:clamp(1.3rem,3vw,2rem);margin:0}
+ #cookDialog .cookTop .eyebrow{display:none}
+ #cookDialog .recipeSheet{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);grid-template-rows:auto 1fr;column-gap:26px;align-content:start;font-size:var(--cookFit,22px);line-height:1.35;border:0!important;box-shadow:none!important;padding:0!important;background:transparent!important}
+ #cookDialog .recipeSheet h3{margin:.2em 0 .3em;font-size:1.05em}
+ #cookDialog .recipeSheet>h3:nth-of-type(1),#cookDialog .recipeSheet>ul{grid-column:1}
+ #cookDialog .recipeSheet>h3:nth-of-type(2),#cookDialog .recipeSheet>ol{grid-column:2}
+ #cookDialog .recipeSheet>ul{grid-row:2;margin:0;padding-inline-start:1.1em}
+ #cookDialog .recipeSheet>ol{grid-row:2;margin:0;padding-inline-start:1.3em}
+ #cookDialog .recipeSheet>h3:nth-of-type(1){grid-row:1}#cookDialog .recipeSheet>h3:nth-of-type(2){grid-row:1}
+ #cookDialog .recipeSheet li{margin:0 0 .35em}
+ #cookDialog .recipeSheet>h3:nth-of-type(3),#cookDialog .recipeSheet>p{display:none}
+ #cookDialog .cookFocus .step{font-size:clamp(1.8rem,4.2vw,3rem);line-height:1.35}
+ #cookDialog .cookNav button,#cookDialog .cookTop button{min-height:52px;font-size:1.1rem}
+}
+
+/* v73e: calmer category chips - one scrollable row, smaller pills, even spacing */
+.chips.catRow{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;gap:8px;padding:2px 2px 10px;margin:10px 0 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.chips.catRow::-webkit-scrollbar{display:none}
+.chips.catRow .chip{flex:0 0 auto;white-space:nowrap;padding:8px 16px;font-size:.95rem;scroll-snap-align:start}
+@media (min-width:900px){.chips.catRow{flex-wrap:wrap!important;overflow:visible}}
+
+/* v73e: flow view inside cook mode - the whole diagram fits one screen (zoom is fitted by feature-flow.js) */
+#cookDialog .cookFlowBox{display:block;padding:0;overflow:hidden}
+#cookDialog .cookFlowBox .flowWrap{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:center;align-items:flex-start;gap:8px 0;overflow:visible!important;padding:4px 0!important;width:100%}
+#cookDialog .cookFlowBox .flowNode{flex:0 0 210px!important;width:210px!important;scroll-snap-align:none}
+#cookDialog .cookFlowBox .flowNode .flowCard{max-width:210px!important;min-height:0!important}
+#cookDialog .cookFlowBox .flowNode>.flowIngs{width:210px!important}
+#cookDialog .cookFlowBox .flowArrow{flex:0 0 56px!important;width:56px!important;height:80px!important;min-height:0!important;margin-top:26px;align-self:flex-start;flex-direction:row}
+#cookDialog .cookFlowBox .flowArrow::before{width:28px;height:0;border-inline-start:0;border-top:2px dashed #A1887F}
+#cookDialog .cookFlowBox .flowArrow::after{border-inline:0;border-block:6px solid transparent;border-inline-end:9px solid #A1887F;border-top-color:transparent}
+#cookDialog .cookFlowBox .flowArrow span{inset-inline-start:50%;inset-block-start:-22px;transform:translateX(50%);font-size:.8rem}
+
+/* ===== v73f: "מסיבת קדירה" - loud, playful cartoon look (thick outlines, offset shadows, bright colours). Fonts: Secular One + Assistant (SIL OFL), local. ===== */
+@font-face{font-family:"Secular One";src:url(fonts/SecularOne.ttf) format("truetype");font-display:swap}
+body[data-theme="party"]{--cream:#FFE9A8;--paper:#FFFFFF;--green:#FF5A36;--green2:#E2431F;--sage:#CFF3EA;--wood:#1F1B2E;--spice:#FF5A36;--ink:#1F1B2E;--muted:#4A4560;--line:#1F1B2E;--shadow:5px 5px 0 #1F1B2E;font-family:"Assistant",system-ui,sans-serif;font-weight:600;background:#FFD23F radial-gradient(#ffffff55 2px,transparent 2.5px) 0 0/22px 22px;color:#1F1B2E}
+body[data-theme="party"] h1,body[data-theme="party"] h2,body[data-theme="party"] h3,body[data-theme="party"] .flowNum,body[data-theme="party"] .logo+div{font-family:"Secular One","Assistant",sans-serif;font-weight:400;color:#1F1B2E;letter-spacing:.01em}
+body[data-theme="party"] .top{background:#2EC4B6!important;color:#1F1B2E!important;border-bottom:4px solid #1F1B2E!important;box-shadow:0 5px 0 #1F1B2E}
+body[data-theme="party"] .top *{color:#1F1B2E}
+body[data-theme="party"] .top nav button{background:#fff!important;border:3px solid #1F1B2E!important;border-radius:14px!important;font-weight:800;box-shadow:3px 3px 0 #1F1B2E;transform:rotate(-1.2deg)}
+body[data-theme="party"] .top nav button:nth-child(even){transform:rotate(1.2deg)}
+body[data-theme="party"] .top nav button:hover{background:#FFD23F!important}
+body[data-theme="party"] .hero{background:#FF8FAB!important;color:#1F1B2E!important;border:4px solid #1F1B2E;border-radius:26px;box-shadow:8px 8px 0 #1F1B2E!important;position:relative}
+body[data-theme="party"] .hero::after{content:"🍳 🧅 🌶️ 🧀";position:absolute;inset-block-start:-18px;inset-inline-end:18px;background:#fff;border:3px solid #1F1B2E;border-radius:999px;padding:2px 14px;font-size:1.2rem;transform:rotate(3deg)}
+body[data-theme="party"] .hero h1{font-size:clamp(2rem,6vw,3.4rem);text-shadow:3px 3px 0 #fff}
+body[data-theme="party"] .hero p,body[data-theme="party"] .hero .eyebrow{color:#1F1B2E!important}
+body[data-theme="party"] .primary,body[data-theme="party"] button.primary{background:#FF5A36!important;color:#fff!important;border:3px solid #1F1B2E!important;border-radius:16px!important;font-weight:800;box-shadow:4px 4px 0 #1F1B2E;transition:transform .12s}
+body[data-theme="party"] .primary:hover{transform:translate(-2px,-2px) rotate(-1deg)}
+body[data-theme="party"] .primary:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #1F1B2E}
+body[data-theme="party"] button:not(.primary):not(.chip){border:3px solid #1F1B2E;border-radius:14px;background:#fff;color:#1F1B2E;font-weight:800;box-shadow:3px 3px 0 #1F1B2E}
+body[data-theme="party"] .card,body[data-theme="party"] .quick button,body[data-theme="party"] .libraryCta,body[data-theme="party"] .stat,body[data-theme="party"] .recipeViewPanel,body[data-theme="party"] .cookFocus,body[data-theme="party"] .recipeSheet,body[data-theme="party"] dialog{background:#fff!important;border:4px solid #1F1B2E!important;border-radius:22px!important;box-shadow:6px 6px 0 #1F1B2E!important}
+body[data-theme="party"] .card:nth-child(3n+1){transform:rotate(-.8deg)}body[data-theme="party"] .card:nth-child(3n+2){transform:rotate(.6deg)}
+body[data-theme="party"] .card:hover{transform:rotate(0) translateY(-3px)}
+body[data-theme="party"] .chip{border:3px solid #1F1B2E!important;border-radius:999px!important;background:#fff!important;color:#1F1B2E!important;font-weight:800;box-shadow:2px 2px 0 #1F1B2E}
+body[data-theme="party"] .chip.active{background:#7B2FF7!important;color:#fff!important}
+body[data-theme="party"] input,body[data-theme="party"] select,body[data-theme="party"] textarea{border:3px solid #1F1B2E;border-radius:14px;background:#fff;color:#1F1B2E;font-family:inherit;font-weight:600}
+body[data-theme="party"] .eyebrow{color:#7B2FF7;font-weight:800}
+body[data-theme="party"] .durBtn{background:#FFD23F!important;border:3px solid #1F1B2E!important;color:#1F1B2E!important;box-shadow:2px 2px 0 #1F1B2E;animation:partyWobble 2.6s ease-in-out infinite}
+@keyframes partyWobble{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){body[data-theme="party"] .durBtn{animation:none}body[data-theme="party"] .card,body[data-theme="party"] .top nav button{transform:none!important}}
+body[data-theme="party"] .flowCard{border:4px solid #1F1B2E;box-shadow:5px 5px 0 #1F1B2E;background:#fff}
+body[data-theme="party"] .flowNum{background:#2EC4B6;color:#1F1B2E;border:2px solid #1F1B2E}
+body[data-theme="party"] .flowArrow::before{border-color:#1F1B2E}body[data-theme="party"] .flowArrow::after{border-top-color:#1F1B2E}
+body[data-theme="party"] .flowWrap.flowH .flowArrow::before{border-top-color:#1F1B2E}body[data-theme="party"] .flowWrap.flowH .flowArrow::after{border-inline-end-color:#1F1B2E}
+body[data-theme="party"] .tdRow{background:#7B2FF7;color:#fff}
+body[data-theme="party"] .progress i{background:#FF5A36}
+
+/* ===== v73f: night display - warm low-glare dark, readable in cook mode and for the new timers/flow ===== */
+body[data-theme="night"]{--cream:#15120F;--paper:#201B17;--green:#E8B76B;--green2:#D49A45;--sage:#2E2822;--wood:#8A7A68;--spice:#E8B76B;--ink:#F1E7D8;--muted:#BDAF9C;--line:#3B332B;--shadow:0 10px 28px #00000066;background:#15120F!important;color:#F1E7D8;font-family:"Assistant",system-ui,sans-serif}
+body[data-theme="night"] h1,body[data-theme="night"] h2,body[data-theme="night"] h3{color:#F6EBDA}
+body[data-theme="night"] .top{background:#1B1612ee!important;border-bottom:1px solid #3B332B!important;color:#F1E7D8!important}
+body[data-theme="night"] .top *{color:#F1E7D8}
+body[data-theme="night"] .hero{background:#201B17!important;color:#F1E7D8!important;border:1px solid #3B332B}
+body[data-theme="night"] .primary,body[data-theme="night"] button.primary{background:#E8B76B!important;color:#1B1612!important;font-weight:800}
+body[data-theme="night"] .card,body[data-theme="night"] .recipeSheet,body[data-theme="night"] .cookFocus,body[data-theme="night"] dialog,body[data-theme="night"] .libraryCta,body[data-theme="night"] .flowCard{background:#201B17!important;color:#F1E7D8!important;border:1px solid #3B332B!important}
+body[data-theme="night"] #cookDialog,body[data-theme="night"] .recipeView{background:#15120F!important;color:#F1E7D8}
+body[data-theme="night"] .chip{background:#201B17!important;border:1.5px solid #5A4C3C!important;color:#E8B76B!important}
+body[data-theme="night"] .chip.active{background:#E8B76B!important;color:#1B1612!important}
+body[data-theme="night"] input,body[data-theme="night"] select,body[data-theme="night"] textarea{background:#2A241E;color:#F1E7D8;border:1.5px solid #5A4C3C}
+body[data-theme="night"] .durBtn{background:#33291C!important;border-color:#E8B76B!important;color:#F6D9A4!important}
+body[data-theme="night"] .flowNum{background:#33291C;color:#F6D9A4}
+body[data-theme="night"] .flowArrow::before{border-color:#8A7A68}body[data-theme="night"] .flowArrow::after{border-top-color:#8A7A68}
+body[data-theme="night"] .flowWrap.flowH .flowArrow::before{border-top-color:#8A7A68}body[data-theme="night"] .flowWrap.flowH .flowArrow::after{border-inline-end-color:#8A7A68}
+body[data-theme="night"] .meta,body[data-theme="night"] .estimate{color:#BDAF9C}
+body[data-theme="night"] .progress i{background:#E8B76B}
+#nightToggle{margin-inline-start:6px}
+body[data-theme="night"] button:not(.primary):not(.chip){background:#2A241E;color:#F1E7D8;border-color:#5A4C3C}
+body[data-theme="night"] #cookDialog .cookTop button,body[data-theme="night"] #cookDialog .cookNav button:not(.primary){background:#2A241E!important;color:#F1E7D8!important;border:1.5px solid #5A4C3C!important}
+body[data-theme="night"] #cookMenuBtn{background:#E8B76B;color:#1B1612}
+body[data-theme="night"] #cookMenuPanel button{background:#2A241E;color:#F1E7D8}
+
+/* v74: account area + resume button */
+.acctArea{margin-top:18px;padding-top:12px;border-top:1px solid var(--line,#ddd)}
+.acctRow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line,#ddd)}
+.acctArea .row{display:flex;gap:8px;margin-top:8px}.acctArea input{flex:1;min-width:0}
+.acctDlg{max-width:min(92vw,460px);border-radius:20px;padding:20px}.acctForm label{display:block;margin:10px 0}.acctForm input{width:100%}
+.acctForm .row{display:flex;gap:8px;margin-top:12px}.acctErr{color:#b3261e;min-height:1.2em;margin:6px 0}
+.tempPw{display:block;font:700 1.6rem/1.4 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-align:center;padding:12px;border:2px dashed currentColor;border-radius:12px;user-select:all}
+.resumeCook{display:block;width:100%;max-width:560px;margin:0 auto 14px;font-size:1.05rem;padding:14px 18px}
+#searchBtn,.searchRow button,.searchBox button{white-space:nowrap;flex:0 0 auto;min-width:max-content;padding-inline:16px}
+#libSearchBtn,#homeSearchBtn{white-space:nowrap!important;flex:0 0 auto!important;min-width:max-content!important;padding-inline:16px!important}
+
+/* v74b: no word is ever split and no button/label wraps onto two lines (hard rule from the owner) */
+html,body,body *{overflow-wrap:normal!important;word-break:keep-all!important;hyphens:none!important}
+button,.chip,.primary,a.btn,label.btn,select,.top nav button,.brand,.brand *,.eyebrow,.quick button,.cookNav button,.cookTop button,.durBtn,.flowNum,.viewToggle button,#timerDock button,.acctRow button,.libraryCta .primary,.dlgHead button{white-space:nowrap!important}
+.modelCredit a,.meta,.estimate{white-space:nowrap}
+@media (max-width:900px){
+ .top{gap:6px;flex-wrap:nowrap}
+ .brand small,.brand .tag,.brand span+span{display:none!important}
+ .top nav{flex-wrap:nowrap;overflow-x:auto;gap:4px;scrollbar-width:none}.top nav::-webkit-scrollbar{display:none}
+ .top nav button,#settingsBtn{padding:8px 10px!important;font-size:.88rem!important}
+}
+@media (max-width:480px){
+ button,.chip,.primary{font-size:.92rem}
+ .primary,button{padding-inline:12px}
+ h1{font-size:clamp(1.5rem,7vw,2.2rem)}h2{font-size:clamp(1.15rem,5.2vw,1.6rem)}
+ .autoStart,#autoStart{font-size:.85rem}
+}
+/* v74c: rows never overflow the screen; shrink text instead of wrapping */
+.search{display:flex;gap:8px;min-width:0}.search input{flex:1 1 0;min-width:0}.search button{flex:0 0 auto}
+.sectionHead{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap;min-width:0}
+.sectionHead>div{min-width:0}
+.backupUpload{display:block;max-width:100%;box-sizing:border-box;overflow:hidden;font-size:clamp(.78rem,3.6vw,1rem)}
+.backupUpload input{max-width:100%;width:100%;font-size:.8rem}
+.libraryCta{flex-wrap:wrap}.libraryCta .primary{font-size:clamp(.8rem,3.8vw,1rem);max-width:100%}
+@media (max-width:480px){.sectionHead .primary{font-size:.85rem;padding-inline:10px}}
+.shopBar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.shopBar button{min-height:48px;padding:0 14px}
+.shopGroup{margin:14px 0 4px;font-size:1rem;color:var(--muted,#6b5b4b)}
+.shoppingItem input[type=checkbox]{width:28px;height:28px}.shoppingItem button,.shoppingItem label{min-height:48px}.shoppingItem button{min-width:48px}
+.cookable{margin:12px 0;padding:10px;border:1px solid var(--line,#e5d9c8);border-radius:12px}.cookableRow{display:flex;justify-content:space-between;gap:8px;width:100%;min-height:48px;margin:4px 0;align-items:center}
+.activeCookStrip{background:#fff4dc!important;border-color:#d99a2b!important;color:#7a4b00!important}
+header button,nav button,.fav,[data-fav],.menuBtn,#networkStatus,dialog .dlgHead button{min-width:48px;min-height:48px}
+
+/* ===== AI features ===== */
+.chatLog{max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;margin:12px 0;padding:4px}
+
+.bubble{max-width:88%;padding:10px 14px;border-radius:16px;line-height:1.55;white-space:pre-wrap}
+
+.bubble.ai{background:var(--sage);align-self:flex-start;border-bottom-right-radius:4px}
+
+.bubble.me{background:var(--green);color:#fff;align-self:flex-end;border-bottom-left-radius:4px}
+
+.bubble.typing{opacity:.55}
+
+.dlgPad{padding:24px;overflow:auto;max-height:92vh}
+
+.dlgPad .row{margin:10px 0}
+
+.sugCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}
+
+.sugCard h3{margin:0 0 6px}
+
+.badge{display:inline-block;background:#fff1cf;border:1px solid #d49a30;border-radius:20px;padding:2px 10px;font-size:.82rem;margin:2px}
+
+.badge.ok{background:var(--sage);border-color:var(--green2)}
+
+.invRow{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+
+#subResult ul{margin:8px 0;padding-right:18px;line-height:1.7}
+
+#invAdd{flex:1}
+
+.spin{display:inline-block;animation:aiSpin 1s linear infinite}
+@keyframes aiSpin{to{transform:rotate(360deg)}}
+/* ===== Timer sounds (v78) ===== */
+.sndField{border:1px solid var(--line,#e5d9c8);border-radius:12px;padding:12px;margin:12px 0}
+.sndField legend{font-weight:700;padding:0 6px}
+.sndList{display:flex;flex-direction:column;gap:6px;max-height:220px;overflow:auto;margin:8px 0}
+.sndRow{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line,#e5d9c8);border-radius:10px;cursor:pointer}
+.sndRow input{width:20px;height:20px}
+.sndRow span{flex:1}
+.sndPrev{border:1px solid var(--line,#e5d9c8);background:var(--bg,#fff);border-radius:50%;width:36px;height:36px;font-size:15px;cursor:pointer}
+.sndRep{display:flex;align-items:center;gap:10px;margin:8px 0}
+.sndRep select{padding:8px;border-radius:8px;border:1px solid var(--line,#e5d9c8)}
+.timerDone{position:fixed;inset-inline:16px;bottom:24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#3E2723;color:#fff;border-radius:16px;padding:16px 18px;font-size:1.25rem;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,.35);animation:timerPulse 1s ease-in-out infinite}
+.timerDone button{background:#fff;color:#3E2723;border:0;border-radius:10px;padding:10px 18px;font-size:1rem;font-weight:700;cursor:pointer}
+@keyframes timerPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+
+/* ===== Settings v78 — clean grouped sections, tablet-first ===== */
+.setGroup{border:1px solid var(--line,#e5d9c8);border-radius:14px;padding:14px;margin:14px 0;background:var(--card,#fffdf8)}
+.setGroup h3{margin:0 0 10px;font-size:1.15rem}
+.setGroup h4{margin:12px 0 6px;font-size:1rem}
+.setRow{display:flex;align-items:center;gap:10px;padding:12px 8px;border-bottom:1px solid var(--line,#f0e8da);font-size:1.05rem;min-height:48px}
+.setRow:last-child{border-bottom:0}
+.setRow input[type=checkbox]{width:24px;height:24px}
+.setRow select{padding:10px;border-radius:10px;border:1px solid var(--line,#e5d9c8);font-size:1rem;min-height:44px}
+button.big{padding:14px 22px;font-size:1.1rem;border-radius:12px;min-height:52px;cursor:pointer}
+.acctInfo{display:flex;align-items:center;gap:12px;padding:10px 0}
+.acctAvatar{font-size:2rem}
+.badge{display:inline-block;background:#3E2723;color:#fff;border-radius:8px;padding:2px 10px;font-size:.85rem;margin-inline-start:8px}
+.badge.warn{background:#b45309}
+.userRow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px;border:1px solid var(--line,#e5d9c8);border-radius:10px;margin:6px 0}
+.userRow button{padding:8px 14px;border-radius:8px;min-height:40px;cursor:pointer}
+.userRow button.danger{background:#b91c1c;color:#fff;border:0}
+.auditLog{list-style:none;margin:8px 0;padding:0;max-height:200px;overflow:auto;font-size:.95rem}
+.auditLog li{padding:8px;border-bottom:1px solid var(--line,#f0e8da)}
+.auditLog small{color:#888}
+.aiStatus{display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;margin:8px 0;font-size:1.05rem}
+.aiStatus .dot{width:14px;height:14px;border-radius:50%}
+.aiStatus.ok{background:#ecfdf5}.aiStatus.ok .dot{background:#10b981}
+.aiStatus.off{background:#fef2f2}.aiStatus.off .dot{background:#ef4444}
+.aiFeatures ul{margin:8px 0;padding-right:20px;line-height:1.9}
+.aiFeatures li{margin:4px 0}
+#settingsDialog{width:min(680px,94vw);max-height:90vh}
+#settingsDialog .formActions{position:sticky;bottom:0;background:var(--paper);padding:12px 0}
+
+/* ===== AI FAB (v78) — glassmorphism, big, prominent ===== */
+.aiFab{position:fixed;bottom:24px;inset-inline-start:24px;z-index:9000;width:112px;height:112px;border-radius:50%;border:2px solid rgba(255,255,255,.75);background:rgba(255,255,255,.4);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 10px 36px rgba(62,39,35,.4),inset 0 2px 6px rgba(255,255,255,.65),inset 0 -2px 6px rgba(255,255,255,.25);cursor:pointer;padding:8px;transition:transform .2s}
+.aiFab:hover{transform:scale(1.08)}
+.aiFab img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;filter:drop-shadow(0 3px 10px rgba(120,70,20,.55))}
+.aiFab:active{transform:scale(.95)}
+@media(max-width:600px){.aiFab{width:96px;height:96px;bottom:20px;inset-inline-start:20px}}
+.chatMascot{width:36px;height:36px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-inline-end:8px}
+/* === perf v78: lazy card images, skeleton placeholders, library load-more === */
+.card .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.skelWrap{display:grid;gap:12px;margin:18px 0}
+.skel{height:64px;border-radius:14px;background:linear-gradient(90deg,#e9ddc9 25%,#f7efe0 50%,#e9ddc9 75%);background-size:200% 100%;animation:skelShimmer 1.1s linear infinite}
+@keyframes skelShimmer{to{background-position:-200% 0}}
+.libMoreWrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin:26px 0}
+#libSentinel{min-height:2px;width:100%}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+
+/* ===== AI Popup Chat (v78) — small, minimal, attached to FAB ===== */
+.aiPopup{position:fixed;bottom:156px;inset-inline-start:24px;z-index:9001;width:min(360px,calc(100vw - 32px));height:min(480px,calc(100vh - 180px));display:flex;flex-direction:column;background:var(--paper,#fffdf8);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.3);border:1px solid var(--line,#e5d9c8);overflow:hidden}
+.aiPopup[hidden]{display:none}
+.aiPopupHead{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#3E2723,#5D4037);color:#fff}
+.aiPopupMascot{width:44px;height:44px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.15)}
+.aiPopupHead div{flex:1}
+.aiPopupHead b{display:block;font-size:1.05rem}
+.aiPopupHead small{opacity:.85;font-size:.85rem}
+.aiPopupHead button{background:rgba(255,255,255,.2);border:0;color:#fff;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer}
+.aiPopup .chatLog{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.aiPopupInput{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line,#e5d9c8);background:var(--card,#fff)}
+.aiPopupInput input{flex:1;padding:12px;border-radius:10px;border:1px solid var(--line,#e5d9c8);font-size:1rem;min-height:44px}
+.aiPopupInput button{padding:12px 18px;min-height:44px}
+@media(max-width:600px){.aiPopup{bottom:132px;inset-inline-start:16px}}
