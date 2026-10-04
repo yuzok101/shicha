@@ -20,7 +20,7 @@ header .networkDot{width:10px!important;height:10px!important;min-width:10px!imp
 .appMenuPanel{overflow:auto;max-height:100vh}.appMenuPanel details>button{white-space:normal;overflow-wrap:normal;word-break:normal}.appMenuPanel summary{display:flex;justify-content:space-between}.appMenuPanel summary::after{content:'▾';margin-right:auto}@media(max-width:600px){.appMenuPanel details>button{display:flex;align-items:center;width:100%;padding:13px 15px;margin:7px 0;text-align:right}.appMenuPanel details{padding:8px 0}.appMenuPanel .dlgHead{position:sticky;top:0;background:var(--paper);z-index:2}}@media(max-width:900px) and (orientation:landscape){.top{min-height:58px;padding-block:6px}.hero{padding:20px!important}.hero h1{font-size:2rem}.quick{grid-template-columns:repeat(4,1fr);margin:12px 0}.quick button{min-height:75px}.quick span{font-size:1.4rem}.libraryCta{flex-direction:row!important;padding:14px!important}.libraryCta>span{font-size:1.8rem}#cookContent{padding:12px 22px}.cookTop{padding-top:40px}.cookModes{margin:4px 0 10px}.cookFocus{padding:12px;overflow:auto}.cookFocus .step{font-size:1.3rem;padding:10px}.timerBox{padding:10px;margin:6px 0}.cookNav{padding:6px 0}.scanChoices{grid-template-columns:1fr 1fr}dialog form{padding:16px;max-height:100vh}.appMenuPanel{max-height:100vh;padding:12px}.appMenuPanel details{padding:2px 0}.appMenuPanel details>button{min-height:38px;margin:3px 0}}
 /* Explicit readable surfaces for every card/panel in all themes */
 .backupPanel,.empty,.libraryCta,.card,.trashPanel,.addMenuPanel,.appMenuPanel,.recipeSheet,.cookFocus{background:var(--paper)!important;color:var(--ink)!important}.backupPanel h1,.backupPanel h2,.backupPanel h3,.backupPanel p,.backupPanel b,.empty h2,.empty p,.libraryCta h2,.libraryCta p,.card h3,.card p,.trashPanel,.addMenuPanel,.appMenuPanel,.recipeSheet,.cookFocus{color:var(--ink)!important}.backupPanel .primary,.libraryCta .primary,.card .primary{color:#fff!important}.statusbar{grid-template-columns:repeat(2,1fr)}body[data-theme="spice"] .backupPanel,body[data-theme="spice"] .empty,body[data-theme="spice"] .card{background:#fffaf2!important;color:#3a2115!important}body[data-theme="spice"] .backupPanel *,body[data-theme="spice"] .empty *,body[data-theme="spice"] .card h3,body[data-theme="spice"] .card .meta{color:#3a2115!important}body[data-theme="spice"] .backupPanel .primary,body[data-theme="spice"] .card .primary{color:#fff!important}body[data-theme="night"] .backupPanel,body[data-theme="night"] .empty,body[data-theme="night"] .card{background:#18231f!important;color:#f3f4ed!important}body[data-theme="night"] .backupPanel *,body[data-theme="night"] .empty *,body[data-theme="night"] .card h3{color:#f3f4ed!important}
-.activeCookStrip{display:flex;align-items:center;gap:6px;background:#fff1f0;border:1px solid #d9534f;border-radius:10px;padding:4px 6px;margin:10px 0;color:#a5211d;max-width:100%}.activeCookStrip button{background:transparent;color:#a5211d;padding:5px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.activeCookStrip button:first-child{flex:1;text-align:right}.activeCookStrip .activeClose{flex:0 0 auto;font-weight:900;font-size:1rem}.activeCookStrip b{color:#b8201a}@media(max-width:600px){.activeCookStrip{font-size:.78rem;margin:7px 0}.activeCookStrip button{padding:4px}}
+
 .shoppingList{margin-top:18px}.shoppingItem{display:flex;justify-content:space-between;align-items:center;background:var(--paper);border:1px solid var(--line);padding:12px 16px;margin:8px 0;border-radius:14px}.shoppingItem label{display:flex;align-items:center;gap:10px;margin:0}.shoppingItem.done span{text-decoration:line-through;opacity:.6}.shoppingItem input{width:22px;height:22px}
 .recipeBookStat{display:flex;flex-direction:column;gap:8px}.recipeBookStat button{margin-top:auto;padding:7px 10px;background:#fff;color:var(--green);white-space:nowrap;word-break:normal;overflow-wrap:normal}
 @media(max-width:600px){.top{display:grid;grid-template-columns:auto auto 1fr auto;gap:10px;padding:10px 14px;min-height:68px}.brand{min-width:0;margin:0;grid-column:4}.brand b{font-size:1.45rem;white-space:nowrap}.brand small{display:none}.logo{font-size:1.35rem;padding:7px}.appMenuBtn{grid-column:2}.networkDot{grid-column:1}.top>#settingsBtn{grid-column:1;padding:8px 10px;font-size:.85rem;white-space:nowrap}.top>#installBtn{display:none!important}.statusbar{grid-template-columns:1fr 1fr}.recipeBookStat button{font-size:.82rem}}
@@ -284,7 +284,6 @@ button,.chip,.primary,a.btn,label.btn,select,.top nav button,.brand,.brand *,.ey
 .shopGroup{margin:14px 0 4px;font-size:1rem;color:var(--muted,#6b5b4b)}
 .shoppingItem input[type=checkbox]{width:28px;height:28px}.shoppingItem button,.shoppingItem label{min-height:48px}.shoppingItem button{min-width:48px}
 .cookable{margin:12px 0;padding:10px;border:1px solid var(--line,#e5d9c8);border-radius:12px}.cookableRow{display:flex;justify-content:space-between;gap:8px;width:100%;min-height:48px;margin:4px 0;align-items:center}
-.activeCookStrip{background:#fff4dc!important;border-color:#d99a2b!important;color:#7a4b00!important}
 header button,nav button,.fav,[data-fav],.menuBtn,#networkStatus,dialog .dlgHead button{min-width:48px;min-height:48px}
 
 /* ===== AI features ===== */
@@ -361,16 +360,28 @@ button.big{padding:14px 22px;font-size:1.1rem;border-radius:12px;min-height:52px
 #settingsDialog .formActions{position:sticky;bottom:0;background:var(--paper);padding:12px 0}
 
 /* ===== AI FAB (v78) — glassmorphism, big, prominent ===== */
-.aiFab{position:fixed;bottom:24px;right:24px;z-index:9000;width:112px;height:112px;border-radius:50%;border:2px solid rgba(255,255,255,.75);background:rgba(255,255,255,.4);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 10px 36px rgba(62,39,35,.4),inset 0 2px 6px rgba(255,255,255,.65),inset 0 -2px 6px rgba(255,255,255,.25);cursor:pointer;padding:8px;transition:transform .2s,left .35s ease,right .35s ease}
+.aiFab{position:fixed;bottom:28px;right:48px;z-index:9000;width:112px;height:112px;border-radius:50%;border:2px solid rgba(255,255,255,.75);background:rgba(255,255,255,.4);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 10px 36px rgba(62,39,35,.4),inset 0 2px 6px rgba(255,255,255,.65),inset 0 -2px 6px rgba(255,255,255,.25);cursor:pointer;padding:8px;transition:transform .25s ease,left .35s ease,right .35s ease}
 .aiFab:hover{transform:scale(1.08)}
+.aiFab.chat-open{transform:translateX(-64px)}
+.aiFab.chat-open:hover{transform:translateX(-64px) scale(1.08)}
+.aiFab.chat-open:active{transform:translateX(-64px) scale(.95)}
 .aiFab img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;filter:drop-shadow(0 3px 10px rgba(120,70,20,.55))}
 .aiFab:active{transform:scale(.95)}
-.aiFab.peek{left:-82px;right:auto}
-@media(max-width:600px){.aiFab{width:96px;height:96px;bottom:20px;right:20px}.aiFab.peek{left:-66px;right:auto}}
+.aiFab.peek{left:-82px;right:auto;transform:none}
+@media(max-width:600px){.aiFab{width:96px;height:96px;bottom:24px;right:32px}.aiFab.peek{left:-66px;right:auto}}
+@media(max-width:600px){.aiFab.chat-open{transform:translateX(-48px)}.aiFab.chat-open:hover{transform:translateX(-48px) scale(1.08)}.aiFab.chat-open:active{transform:translateX(-48px) scale(.95)}}
 @media (prefers-reduced-motion:reduce){.aiFab{transition:none}}
 .aiFab.speaking{animation:fabSpeak 1.2s ease-in-out infinite}
 @keyframes fabSpeak{50%{box-shadow:0 0 0 14px rgba(197,111,54,.28),0 10px 36px rgba(62,39,35,.4)}}
 @media (prefers-reduced-motion:reduce){.aiFab.speaking{animation:none}}
+/* ===== Mascot thinking state (v83) — gentle stirring ±6° ===== */
+.aiFab.thinking img,.aiPopup.thinking .aiPopupMascot{animation:stir 2.4s ease-in-out infinite;transform-origin:50% 62%}
+@keyframes stir{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@media (prefers-reduced-motion:reduce){.aiFab.thinking img,.aiPopup.thinking .aiPopupMascot{animation:none}}
+/* ===== Continue-cooking chip — quiet, subtle (v83) ===== */
+.cookChip{display:inline-flex;align-items:center;gap:8px;background:#f8f4ec;border:1px solid #e3d9c6;color:#6f5f4c;border-radius:999px;padding:9px 18px;font-size:.98rem;cursor:pointer;margin:2px 0 12px;box-shadow:0 1px 3px rgba(62,39,35,.08)}
+.cookChip:hover{background:#f1eadd}
+.cookCardBadge{display:inline-block;background:#f8f4ec;border:1px solid #e3d9c6;color:#6f5f4c;border-radius:999px;padding:3px 12px;font-size:.82rem;margin-bottom:6px}
 /* manual shopping add — big touch targets */
 #shoppingForm{font-size:1.1rem;margin-top:18px}
 #shoppingForm input{padding:15px;font-size:1.15rem}
@@ -395,7 +406,7 @@ button.big{padding:14px 22px;font-size:1.1rem;border-radius:12px;min-height:52px
 @media (prefers-reduced-motion:reduce){.skel{animation:none}}
 
 /* ===== AI Popup Chat (v78) — small, minimal, attached to FAB ===== */
-.aiPopup{position:fixed;bottom:156px;inset-inline-start:24px;z-index:9001;width:min(360px,calc(100vw - 32px));height:min(480px,calc(100vh - 180px));display:flex;flex-direction:column;background:var(--paper,#fffdf8);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.3);border:1px solid var(--line,#e5d9c8);overflow:hidden}
+.aiPopup{position:fixed;bottom:160px;inset-inline-start:48px;z-index:9001;width:min(360px,calc(100vw - 32px));height:min(480px,calc(100vh - 180px));display:flex;flex-direction:column;background:var(--paper,#fffdf8);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.3);border:1px solid var(--line,#e5d9c8);overflow:hidden}
 .aiPopup[hidden]{display:none}
 .aiPopupHead{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#3E2723,#5D4037);color:#fff}
 .aiPopupMascot{width:44px;height:44px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.15)}
@@ -407,4 +418,4 @@ button.big{padding:14px 22px;font-size:1.1rem;border-radius:12px;min-height:52px
 .aiPopupInput{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line,#e5d9c8);background:var(--card,#fff)}
 .aiPopupInput input{flex:1;padding:12px;border-radius:10px;border:1px solid var(--line,#e5d9c8);font-size:1rem;min-height:44px}
 .aiPopupInput button{padding:12px 18px;min-height:44px}
-@media(max-width:600px){.aiPopup{bottom:132px;inset-inline-start:16px}}
+@media(max-width:600px){.aiPopup{bottom:140px;inset-inline-start:32px}}
