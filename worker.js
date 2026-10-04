@@ -1,3 +1,37 @@
+
+const GEMINI_MODEL='gemini-3.5-flash-lite',GEMINI_URL='https://generativelanguage.googleapis.com/v1beta/models/'+GEMINI_MODEL+':generateContent';
+const AI_SYS={
+chat:'אתה "העוזר החכם" של אפליקציית המתכונים "תבלין". ענה בעברית, בקצרה ובחום. אתה מומחה לבישול ביתי ישראלי: מתכונים, טכניקות, תחליפי מרכיבים, תכנון ארוחות ואחסון מזון. שים לב לכשרות (פרווה/חלבי/בשרי) כשזה רלוונטי. אם השאלה אינה קשורה לאוכל ולבישול, החזר אותה בנימוס לנושא.',
+suggest:'אתה מנוע המלצות לאפליקציית מתכונים ישראלית. ענה אך ורק ב-JSON תקין, ללא טקסט נוסף וללא סימוני קוד.',
+substitute:'אתה מנוע תחליפי מרכיבים לאפליקציית מתכונים ישראלית. ענה אך ורק ב-JSON תקין, ללא טקסט נוסף וללא סימוני קוד.',
+smartsearch:'אתה מנוע חיפוש סמנטי לאפליקציית מתכונים ישראלית. ענה אך ורק ב-JSON תקין, ללא טקסט נוסף וללא סימוני קוד.',
+parse:'אתה מפענח מתכונים לאפליקציית מתכונים ישראלית. ענה אך ורק ב-JSON תקין, ללא טקסט נוסף וללא סימוני קוד.'};
+function aiSpec(action,b){
+ if(action==='chat'){const msgs=Array.isArray(b.messages)?b.messages.slice(-12):[];return{contents:msgs.map(m=>({role:m.role==='assistant'?'model':'user',parts:[{text:String(m.text||'').slice(0,2000)}]}))}}
+ const slim=a=>JSON.stringify(a).slice(0,6000);
+ if(action==='suggest')return{temp:0.6,tokens:800,prompt:'המתכונים:\n'+slim(b.recipes||[])+'\n\nמה שיש בבית: '+((b.inventory||[]).join(', ')||'לא צוין')+'\n\nבחר עד 3 מתכונים שמתאימים ביותר. החזר JSON: [{"name":"שם המתכון בדיוק כפי שמופיע","reason":"סיבה קצרה בעברית","missing":["מרכיבים חסרים"]}]'};
+ if(action==='substitute')return{temp:0.5,tokens:500,prompt:'המרכיב: "'+String(b.ingredient||'').slice(0,80)+'"'+(b.recipeName?'\nבהקשר של המתכון: "'+String(b.recipeName).slice(0,80)+'"':'')+'\nהחזר JSON: {"substitutes":[{"name":"שם התחליף","amount":"כמות/יחס","note":"הערה קצרה בעברית"}]}. עד 4 תחליפים.'};
+ if(action==='smartsearch')return{temp:0.4,tokens:600,prompt:'השאילתה: "'+String(b.query||'').slice(0,200)+'"\n\nהמתכונים:\n'+slim(b.recipes||[])+'\n\nהחזר JSON עם המתכונים המתאימים לשאילתה (גם התאמה רעיונית, לא רק מילולית): [{"name":"שם בדיוק כפי שמופיע","reason":"למה מתאים, בעברית"}]. אם אין התאמה החזר [].'};
+ if(action==='parse')return{temp:0.3,tokens:1200,prompt:'הטקסט:\n"""\n'+String(b.text||'').slice(0,4000)+'\n"""\n\nחלץ מתכון מובנה. החזר JSON: {"name":"שם","category":"פרווה/חלבי/בשרי/קינוח/אחר","minutes":30,"ingredients":["שורה לכל מרכיב"],"steps":["שורה לכל שלב"],"notes":""}. אם חסר מידע, השאר מחרוזת ריקה או מערך ריק.'};
+ return null}
+function aiCleanJSON(t){const m=String(t||'').replace(/```json|```/g,'').trim();const bo=m.indexOf('{'),bc=m.lastIndexOf('}'),ao=m.indexOf('['),ac=m.lastIndexOf(']');let c=m;if(ao>=0&&(bo<0||ao<bo))c=m.slice(ao,ac+1);else if(bo>=0)c=m.slice(bo,bc+1);try{return JSON.parse(c)}catch(e){return null}}
+async function aiCall(env,action,b){
+ const key=env.GEMINI_API_KEY;
+ if(!key)return{err:{error:'ai_unavailable',message:'שירות ה-AI אינו מוגדר כרגע. כדי להפעיל אותו יש להגדיר את הסוד GEMINI_API_KEY בשרת (wrangler secret put GEMINI_API_KEY).'},status:503};
+ const spec=aiSpec(action,b);
+ if(!spec||(action==='chat'&&!spec.contents.length))return{err:{error:'bad_request'},status:400};
+ const contents=action==='chat'?spec.contents:[{parts:[{text:spec.prompt}]}];
+ let gr;
+ try{gr=await fetch(GEMINI_URL+'?key='+encodeURIComponent(key),{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({system_instruction:{parts:[{text:AI_SYS[action]}]},contents,generationConfig:{temperature:spec.temp??0.7,maxOutputTokens:spec.tokens??1024}})} )}catch(e){return{err:{error:'ai_failed',message:'שירות ה-AI נכשל כרגע. נסו שוב מאוחר יותר.'},status:502}}
+ if(!gr.ok)return{err:{error:'ai_failed',message:'שירות ה-AI החזיר שגיאה. נסו שוב מאוחר יותר.'},status:502};
+ let gj;try{gj=await gr.json()}catch(e){return{err:{error:'ai_failed',message:'שירות ה-AI החזיר תשובה לא תקינה.'},status:502}}
+ const text=(gj.candidates&&gj.candidates[0]&&gj.candidates[0].content&&gj.candidates[0].content.parts||[]).map(x=>x.text||'').join('').trim();
+ if(!text)return{err:{error:'ai_failed',message:'שירות ה-AI החזיר תשובה ריקה. נסו שוב.'},status:502};
+ if(action==='chat')return{ok:{reply:text}};
+ const data=aiCleanJSON(text);
+ if(!data)return{err:{error:'ai_parse',message:'שירות ה-AI החזיר תשובה לא תקינה. נסו שוב.'},status:502};
+ return{ok:{data}}}
+
 const JSON_HEADERS={'content-type':'application/json;charset=UTF-8','cache-control':'no-store'};
 const reply=(data,status=200,extra={})=>new Response(JSON.stringify(data),{status,headers:{...JSON_HEADERS,...extra}});
 const enc=new TextEncoder();
@@ -13,6 +47,16 @@ export default {async fetch(req,env){const url=new URL(req.url),p=url.pathname;t
  if(p==='/api/setup'&&req.method==='POST'){if(await env.DB.prepare('SELECT count(*) n FROM users').first().then(x=>x.n))return reply({error:'setup_closed'},403);const b=await req.json();if(b.username!=='יוני'||typeof b.password!=='string'||b.password.length<12)return reply({error:'invalid_setup'},400);const id=crypto.randomUUID(),hash=await hashPassword(b.password);await env.DB.prepare('INSERT INTO users(id,username,password_hash,created_at) VALUES(?,?,?,?)').bind(id,b.username,hash,Date.now()).run();return reply({ok:true})}
  if(p==='/api/login'&&req.method==='POST'){const b=await req.json(),u=await env.DB.prepare('SELECT id,username,password_hash FROM users WHERE username=?').bind(String(b.username||'')).first();if(!u||!await verifyPassword(String(b.password||''),u.password_hash))return reply({error:'invalid_credentials'},401);const token=await session(u,env);return reply({ok:true,user:{username:u.username}},200,{'set-cookie':`tavlin_session=${token}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=604800`})}
  if(p==='/api/logout'&&req.method==='POST')return reply({ok:true},200,{'set-cookie':'tavlin_session=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0'});
+  if(p==='/api/ai'&&req.method==='POST'){
+  const ref=req.headers.get('origin')||req.headers.get('referer')||'';
+  let same=false;try{same=!!ref&&new URL(ref).hostname===url.hostname}catch(e){}
+  if(!same)return reply({error:'forbidden'},403);
+  let b;try{b=await req.json()}catch(e){return reply({error:'bad_request'},400)}
+  if(!AI_SYS[b.action])return reply({error:'bad_action'},400);
+  const r=await aiCall(env,b.action,b);
+  if(r.err)return reply(r.err,r.status);
+  return reply(r.ok);
+ }
  const u=await auth(req,env);if(!u)return reply({error:'unauthorized'},401);
  if(p==='/api/me')return reply({user:{username:u.username}});
  if(p==='/api/recipes'&&req.method==='GET'){const rows=await env.DB.prepare('SELECT id,name,category,minutes,ingredients,steps,notes,source,created_at,updated_at FROM recipes WHERE user_id=? AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 500').bind(u.id).all();return reply({recipes:rows.results.map(r=>({...r,ingredients:JSON.parse(r.ingredients),steps:JSON.parse(r.steps)}))})}
