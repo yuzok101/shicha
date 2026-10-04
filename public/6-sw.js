@@ -1,6 +1,6 @@
 // Tavlin app shell — v79: FAB glass fix (bigger, white 40% glass, versioned mascot).
-const CACHE='tavlin-p1-v79';
-const CORE=['./','./index.html','./2-style.css?v=79','./3-app.js?v=79','./feature-flow.js?v=77','./feature-users.js?v=77','./voice.js?v=78','./timer-sounds.js?v=78','./meal-planner.js?v=78','./fridge-scan.js?v=78','./ai-recipe.js?v=78','./assets/mascot.webp?v=79','./assets/mascot-blink.webp?v=79','./ocr/tesseract.min.js','./ocr/worker.min.js','./ocr/tesseract-core-simd-lstm.wasm.js','./ocr/tesseract-core-simd-lstm.wasm','./ocr/heb.traineddata.gz','./ocr/eng.traineddata.gz','./htr/recognizer.js','./htr/LICENSE-MODEL.txt','./fonts/PlaypenSansHebrew.ttf','./fonts/Assistant.ttf','./fonts/SecularOne.ttf','./4-manifest.webmanifest','./5-icon.svg'];
+const CACHE='tavlin-p1-v81';
+const CORE=['./','./index.html','./2-style.css?v=81','./3-app.js?v=81','./feature-flow.js?v=77','./feature-users.js?v=77','./voice.js?v=78','./timer-sounds.js?v=78','./meal-planner.js?v=78','./fridge-scan.js?v=78','./ai-recipe.js?v=78','./assets/mascot.webp?v=81','./assets/mascot-blink.webp?v=81','./ocr/tesseract.min.js','./ocr/worker.min.js','./ocr/tesseract-core-simd-lstm.wasm.js','./ocr/tesseract-core-simd-lstm.wasm','./ocr/heb.traineddata.gz','./ocr/eng.traineddata.gz','./htr/recognizer.js','./htr/LICENSE-MODEL.txt','./fonts/PlaypenSansHebrew.ttf','./fonts/Assistant.ttf','./fonts/SecularOne.ttf','./4-manifest.webmanifest','./5-icon.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(xs=>Promise.all(xs.filter(x=>x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{

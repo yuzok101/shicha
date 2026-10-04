@@ -60,42 +60,28 @@ def all_files():
     return sorted(out)
 
 def main():
-    print("base ref...", flush=True)
-    base_sha = api("GET", f"/repos/{REPO}/git/refs/heads/{BASE_BRANCH}")["object"]["sha"]
-    print(" base:", base_sha[:12], flush=True)
+    print("branch tip...", flush=True)
+    tip = api("GET", f"/repos/{REPO}/git/refs/heads/{NEW_BRANCH}")["object"]["sha"]
+    print(" tip:", tip[:12], flush=True)
 
     files = all_files()
-    print(f"{len(files)} files; creating blobs for baseline...", flush=True)
+    print(f"{len(files)} files; creating blobs...", flush=True)
     tree_entries = []
     for i, p in enumerate(files):
         sha, size = blob_for(p)
         tree_entries.append({"path": p, "mode": "100644", "type": "blob", "sha": sha})
         if (i + 1) % 10 == 0: print(f"  {i+1}/{len(files)}", flush=True)
-    print(" creating baseline tree...", flush=True)
+    print(" creating tree (full replacement)...", flush=True)
     tree = api("POST", f"/repos/{REPO}/git/trees", {"tree": tree_entries}, timeout=300)
-    print(" creating baseline commit...", flush=True)
-    c1 = api("POST", f"/repos/{REPO}/git/commits", {
-        "message": "v78 production baseline (deployed 2026-10-04 via wrangler; AI, chat, fridge scan, voice, mascot FAB)",
-        "tree": tree["sha"], "parents": [base_sha]})
-    print(" c1:", c1["sha"][:12], flush=True)
+    print(" creating commit...", flush=True)
+    c = api("POST", f"/repos/{REPO}/git/commits", {
+        "message": "v79+v80+v81: FAB glass fix (112px, white 40% glass), trimmed mascot fills circle, fast blink every 2s (0.4s)",
+        "tree": tree["sha"], "parents": [tip]})
+    print(" commit:", c["sha"][:12], flush=True)
 
-    print(" blobs for v79 changes...", flush=True)
-    entries2 = []
-    for p in CHANGED_V79:
-        sha, size = blob_for(p)
-        entries2.append({"path": p, "mode": "100644", "type": "blob", "sha": sha})
-        print(f"  {p} ({size}b)", flush=True)
-    print(" creating v79 tree...", flush=True)
-    t2 = api("POST", f"/repos/{REPO}/git/trees", {"base_tree": tree["sha"], "tree": entries2}, timeout=300)
-    print(" creating v79 commit...", flush=True)
-    c2 = api("POST", f"/repos/{REPO}/git/commits", {
-        "message": "v79: FAB glass fix — 112px, white 40% glass + blur(16px), versioned mascot URLs (?v=79), preload, SW cache v79",
-        "tree": t2["sha"], "parents": [c1["sha"]]})
-    print(" c2:", c2["sha"][:12], flush=True)
-
-    print(" creating branch ref...", flush=True)
-    api("POST", f"/repos/{REPO}/git/refs", {"ref": f"refs/heads/{NEW_BRANCH}", "sha": c2["sha"]})
-    print(f"OK: branch {NEW_BRANCH} -> {c2['sha']}")
+    print(" updating branch ref...", flush=True)
+    api("PATCH", f"/repos/{REPO}/git/refs/heads/{NEW_BRANCH}", {"sha": c["sha"], "force": False})
+    print(f"OK: branch {NEW_BRANCH} -> {c['sha']}")
 
 if __name__ == "__main__":
     main()
