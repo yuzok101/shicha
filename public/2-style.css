@@ -361,11 +361,29 @@ button.big{padding:14px 22px;font-size:1.1rem;border-radius:12px;min-height:52px
 #settingsDialog .formActions{position:sticky;bottom:0;background:var(--paper);padding:12px 0}
 
 /* ===== AI FAB (v78) — glassmorphism, big, prominent ===== */
-.aiFab{position:fixed;bottom:24px;inset-inline-start:24px;z-index:9000;width:112px;height:112px;border-radius:50%;border:2px solid rgba(255,255,255,.75);background:rgba(255,255,255,.4);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 10px 36px rgba(62,39,35,.4),inset 0 2px 6px rgba(255,255,255,.65),inset 0 -2px 6px rgba(255,255,255,.25);cursor:pointer;padding:8px;transition:transform .2s}
+.aiFab{position:fixed;bottom:24px;right:24px;z-index:9000;width:112px;height:112px;border-radius:50%;border:2px solid rgba(255,255,255,.75);background:rgba(255,255,255,.4);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 10px 36px rgba(62,39,35,.4),inset 0 2px 6px rgba(255,255,255,.65),inset 0 -2px 6px rgba(255,255,255,.25);cursor:pointer;padding:8px;transition:transform .2s,left .35s ease,right .35s ease}
 .aiFab:hover{transform:scale(1.08)}
 .aiFab img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;filter:drop-shadow(0 3px 10px rgba(120,70,20,.55))}
 .aiFab:active{transform:scale(.95)}
-@media(max-width:600px){.aiFab{width:96px;height:96px;bottom:20px;inset-inline-start:20px}}
+.aiFab.peek{left:-82px;right:auto}
+@media(max-width:600px){.aiFab{width:96px;height:96px;bottom:20px;right:20px}.aiFab.peek{left:-66px;right:auto}}
+@media (prefers-reduced-motion:reduce){.aiFab{transition:none}}
+.aiFab.speaking{animation:fabSpeak 1.2s ease-in-out infinite}
+@keyframes fabSpeak{50%{box-shadow:0 0 0 14px rgba(197,111,54,.28),0 10px 36px rgba(62,39,35,.4)}}
+@media (prefers-reduced-motion:reduce){.aiFab.speaking{animation:none}}
+/* manual shopping add — big touch targets */
+#shoppingForm{font-size:1.1rem;margin-top:18px}
+#shoppingForm input{padding:15px;font-size:1.15rem}
+#shoppingForm button{padding:15px 26px;font-size:1.15rem;min-height:58px;font-weight:700}
+/* chat voice */
+.iconBtn{background:transparent;border:1px solid var(--line,#e5d9c8);border-radius:12px;min-width:52px;min-height:52px;font-size:1.35rem;cursor:pointer;flex:0 0 auto}
+.iconBtn.off{opacity:.4}
+#aiPopupMic.listening{animation:micPulse 1s ease-in-out infinite;background:#f3d9d5;border-color:#a13f36}
+@keyframes micPulse{50%{transform:scale(1.12);box-shadow:0 0 0 10px rgba(161,63,54,.18)}}
+@media (prefers-reduced-motion:reduce){#aiPopupMic.listening{animation:none}}
+.aiPopupInput{display:flex;gap:8px;align-items:center}
+.smartBuyList{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+.smartBuyList li{background:#fff;border:1px solid var(--line,#e5d9c8);border-radius:12px;padding:10px 14px;font-size:1.05rem}
 .chatMascot{width:36px;height:36px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-inline-end:8px}
 /* === perf v78: lazy card images, skeleton placeholders, library load-more === */
 .card .photo img{width:100%;height:100%;object-fit:cover;display:block}

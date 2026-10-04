@@ -6,7 +6,8 @@ const Voice = (() => {
   const CACHE_KEY = 'tavlin-shabbat-cache';
 
   let rec = null, listening = false, commandMode = false, cmdTimer = null;
-  let supported = false;
+  let supported = false, wakeChatFn = null;
+  function onWakeChat(fn) { wakeChatFn = fn; }
 
   // ---------- settings ----------
   function prefs() { try { return JSON.parse(localStorage.getItem('tavlin-settings') || '{}'); } catch { return {}; } }
@@ -60,7 +61,13 @@ const Voice = (() => {
     text = text.trim();
     if (!text) return;
     if (!commandMode) {
-      if (WAKE.some(w => text.includes(w)) || (text.includes('מטבח') && /היי|הי/.test(text))) enterCommandMode();
+      const wake = WAKE.some(w => text.includes(w)) || (text.includes('מטבח') && /היי|הי/.test(text));
+      if (wake) {
+        const cookOpen = !!(document.querySelector && document.querySelector('#cookDialog') && document.querySelector('#cookDialog').open);
+        if (cookOpen) enterCommandMode();
+        else if (wakeChatFn) { try { wakeChatFn(); } catch {} }
+        else enterCommandMode();
+      }
     } else if (e.results[e.results.length - 1].isFinal) {
       const cmd = text.replace(/היי מטבח|הי מטבח/g, '').trim();
       exitCommandMode();
@@ -211,8 +218,13 @@ const Voice = (() => {
   }
 
   function bindMicButton() { bindMic(document); }
-  function startCookMode() { if (prefs().voice !== false && !isShabbatNow()) start(); }
+  async function startCookMode() { if (prefs().voice !== false && !(await isShabbatNow())) start(); }
   function stopCookMode() { stop(); }
+  async function autoStart() {
+    if (!supported || !voiceOn()) return false;
+    if (await isShabbatNow()) return false;
+    return start();
+  }
 
-  return { init, start, stop, speak, isShabbatNow, refreshShabbatCache, settingsHTML, refreshShabbatState, micButtonHTML, bindMic, bindMicButton, startCookMode, stopCookMode, parseNum, supported: () => supported };
+  return { init, start, stop, speak, isShabbatNow, refreshShabbatCache, settingsHTML, refreshShabbatState, micButtonHTML, bindMic, bindMicButton, startCookMode, stopCookMode, parseNum, onWakeChat, autoStart, supported: () => supported };
 })();
